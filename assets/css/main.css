@@ -1,4 +1,3 @@
-/* ===========================
 Index Of css
 
 01. Header CSS
@@ -3010,6 +3009,7 @@ ol {
 .footer .footer-bottom {
   padding: 30px 0;
   background-color: #0EDC8D;
+  height: 25vh;
 }
 
 .footer .footer-bottom .inner {
