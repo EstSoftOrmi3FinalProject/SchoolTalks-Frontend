@@ -65,10 +65,9 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="toolbar-login">
-                            <div class="button">
-                                <a href="register.html">Create an Account</a>
-                                <a href="login.html" class="btn">Log In</a>
-                            </div>
+                            <a href="register.html" id="registerButton">Create Account</a>
+                            <a href="login.html" class="btn" id="loginButton">Login</a>
+                            <a href="login.html" class="btn" id="logoutButton">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -92,10 +91,9 @@
                         </button>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav ms-auto">
-                                <li class="nav-item"><a href="cover.html">Home</a></li>
+                                <li class="nav-item"><a href="/cover.html">Home</a></li>
                                 <li class="nav-item"><a href="study-index.html">입시정보게시판</a></li>
                                 <li class="nav-item"><a href="/post/index.html">자유수다게시판</a></li>
-                                
                                 <li class="nav-item"><a class="active" href="/chat/index.html">실시간채팅방</a></li>
                                 <li class="nav-item"><a href="/qna.html">문의</a></li>
                                 <li class="nav-item"><a href="profile.html">프로필</a></li>
@@ -161,7 +159,8 @@
     <script src="/assets/js/tiny-slider.js"></script>
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/post.js"></script>
+    <script src="/assets/js/logout.js"></script>
+
     <script type="text/javascript">
         //========= Hero Slider 
         tns({
@@ -203,8 +202,7 @@
                 }
             }
         });
-        //========= glightbox
-        GLightbox({
+
             'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
             'type': 'video',
             'source': 'youtube', //vimeo, youtube or local
