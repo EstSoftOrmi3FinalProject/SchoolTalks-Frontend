@@ -8,11 +8,11 @@ Author: GrayGrids
 
     window.onload = function () {
         window.setTimeout(fadeout, 500);
-    }
+    };
 
     function fadeout() {
-        document.querySelector('.preloader').style.opacity = '0';
-        document.querySelector('.preloader').style.display = 'none';
+        document.querySelector(".preloader").style.opacity = "0";
+        document.querySelector(".preloader").style.display = "none";
     }
 
     /*=====================================
@@ -28,45 +28,41 @@ Author: GrayGrids
             header_navbar.classList.remove("sticky");
         }
 
-
-    
-
         // show or hide the back-top-top button
         var backToTo = document.querySelector(".scroll-top");
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        if (
+            document.body.scrollTop > 50 ||
+            document.documentElement.scrollTop > 50
+        ) {
             backToTo.style.display = "flex";
         } else {
             backToTo.style.display = "none";
         }
     };
 
-    
     // WOW active
     new WOW().init();
 
-    
+    // for menu scroll
+    var pageLink = document.querySelectorAll(".page-scroll");
 
-    // for menu scroll 
-    var pageLink = document.querySelectorAll('.page-scroll');
-
-    pageLink.forEach(elem => {
-        elem.addEventListener('click', e => {
+    pageLink.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector(elem.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
+            document.querySelector(elem.getAttribute("href")).scrollIntoView({
+                behavior: "smooth",
                 offsetTop: 1 - 60,
             });
         });
     });
 
-    
-      //===== mobile-menu-btn
-	let navbarToggler = document.querySelector(".mobile-menu-btn");
-	navbarToggler.addEventListener('click', function () {
-		navbarToggler.classList.toggle("active");
-	});
+    //===== mobile-menu-btn
+    let navbarToggler = document.querySelector(".mobile-menu-btn");
+    navbarToggler.addEventListener("click", function () {
+        navbarToggler.classList.toggle("active");
+    });
 
-    //====== counter up 
+    //====== counter up
     var cu = new counterUp({
         start: 0,
         duration: 2000,
@@ -75,6 +71,4 @@ Author: GrayGrids
         append: " ",
     });
     cu.start();
-
 })();
-
