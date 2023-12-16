@@ -13,11 +13,13 @@ function logout() {
         document.getElementById("logoutButton").style.display = "none";
         document.getElementById("loginButton").style.display = "block";
     }
-}
 
-document.getElementById("logoutButton").addEventListener("click", function () {
-    // 로컬 스토리지에서 'username' 항목을 삭제합니다.
-    localStorage.removeItem("username");
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-});
+    document
+        .getElementById("logoutButton")
+        .addEventListener("click", function (e) {
+            // 로컬 스토리지에서 'username' 항목을 삭제합니다.
+            localStorage.removeItem("username");
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+        });
+}
