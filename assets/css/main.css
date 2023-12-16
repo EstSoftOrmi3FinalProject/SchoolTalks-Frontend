@@ -1499,6 +1499,11 @@ ol {
   background-color: transparent;
   border-color: #fff;
 }
+.toolbar-login {
+  display: flex;
+  justify-content: flex-start; /* 좌측 정렬을 위해 */
+  align-items: center; /* 세로 중앙 정렬을 위해 */
+}
 
 /*===== NAVBAR =====*/
 .navbar-area {

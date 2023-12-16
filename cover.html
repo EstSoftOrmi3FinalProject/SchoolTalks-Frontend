@@ -65,10 +65,9 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="toolbar-login">
-                            <div class="button">
-                                <a href="register.html">Create an Account</a>
-                                <a href="login.html" class="btn">Log In</a>
-                            </div>
+                            <a href="register.html" id="registerButton">Create Account</a>
+                            <a href="login.html" class="btn" id="loginButton">Login</a>
+                            <a href="login.html" class="btn" id="logoutButton">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -95,9 +94,8 @@
                                 <li class="nav-item"><a class="active" href="cover.html">Home</a></li>
                                 <li class="nav-item"><a href="/study/study-index.html">입시정보게시판</a></li>
                                 <li class="nav-item"><a href="/post/index.html">자유수다게시판</a></li>
-                                
                                 <li class="nav-item"><a href="/chat/index.html">실시간채팅방</a></li>
-                                <li class="nav-item"><a href="javascript:void(0)">문의</a></li>
+                                <li class="nav-item"><a href="qna.html">문의</a></li>
                                 <li class="nav-item"><a href="profile.html">프로필</a></li>
                             </ul>
                             
@@ -127,8 +125,8 @@
 
                                         </p>
                                     <div class="button wow fadeInUp" data-wow-delay=".9s">
-                                        <a href="about-us.html" class="btn">Learn More</a>
-                                        <a href="courses-grid.html" class="btn alt-btn">Start!</a>
+                                        <a href="qna.html" class="btn">Q&A</a>
+                                        <a href="/study/study-index.html" class="btn alt-btn">Start!</a>
                                     </div>
                                 </div>
                             </div>
@@ -146,10 +144,7 @@
                                 <div class="hero-text">
                                     <h5 class="wow fadeInUp" data-wow-delay=".3s">스쿨 톡스 - 입시정보 게시판</h5>
                                     <h1 class="wow fadeInUp" data-wow-delay=".5s">환영합니다! "스쿨 톡스"는 교육 및 입시 정보를 공유하고 소통하는 커뮤니티입니다.</h1>
-                                    <p class="wow fadeInUp" data-wow-delay=".7s"> 여기에서는 학교, 대학, 학습 자료 및 입시 관련 정보에 대한 토론과 공유가 이루어집니다.
-
-
-                                        </p>
+                                    <p class="wow fadeInUp" data-wow-delay=".7s"> 여기에서는 학교, 대학, 학습 자료 및 입시 관련 정보에 대한 토론과 공유가 이루어집니다.</p>
                                     <div class="button wow fadeInUp" data-wow-delay=".9s">
                                         <a href="about-us.html" class="btn">Learn More</a>
                                         <a href="courses-grid.html" class="btn alt-btn">Start!</a>
@@ -170,10 +165,7 @@
                                 <div class="hero-text">
                                     <h5 class="wow fadeInUp" data-wow-delay=".3s">스쿨 톡스 - 입시정보 게시판</h5>
                                     <h1 class="wow fadeInUp" data-wow-delay=".5s">환영합니다! "스쿨 톡스"는 교육 및 입시 정보를 공유하고 소통하는 커뮤니티입니다.</h1>
-                                    <p class="wow fadeInUp" data-wow-delay=".7s"> 여기에서는 학교, 대학, 학습 자료 및 입시 관련 정보에 대한 토론과 공유가 이루어집니다.
-
-
-                                        </p>
+                                    <p class="wow fadeInUp" data-wow-delay=".7s"> 여기에서는 학교, 대학, 학습 자료 및 입시 관련 정보에 대한 토론과 공유가 이루어집니다.</p>
                                     <div class="button wow fadeInUp" data-wow-delay=".9s">
                                         <a href="about-us.html" class="btn">Learn More</a>
                                         <a href="courses-grid.html" class="btn alt-btn">Start!</a>
@@ -210,11 +202,11 @@
                                 
                                 스쿨 톡스, 함께하는 지식의 공동체. 함께 시작해봅시다!</p>
 
-                            <div class="button wow fadeInUp" data-wow-delay="1s">
-                                <a href="about-us.html" class="btn">Read More</a>
-                                <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                                    class="glightbox video btn"> Play Video<i class="lni lni-play"></i></a>
-                            </div>
+                                <div class="button wow fadeInUp" data-wow-delay="1s">
+                                    <a href="https://github.com/EstSoftOrmi3FinalProject/SchoolTalks-Backend"
+                                        class="glightbox video btn">Github<i class="fab fa-github"></i></a>
+                                </div>
+                                
                         </div>
                     </div>
                 </div>
@@ -267,7 +259,7 @@
     <script src="assets/js/tiny-slider.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/post.js"></script>
+    <script src="assets/js/logout.js"></script>
     <script type="text/javascript">
         //========= Hero Slider 
         tns({
@@ -308,14 +300,6 @@
                     items: 6,
                 }
             }
-        });
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
         });
     </script>
 </body>
