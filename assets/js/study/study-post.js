@@ -93,7 +93,7 @@ function fetchPosts(pageNumber) {
     });
 }
 
-
+// UI수정
 function createPostElement(post) {
     const postElement = document.createElement('div');
     postElement.className = 'post';
