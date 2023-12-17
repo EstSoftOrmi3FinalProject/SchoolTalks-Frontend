@@ -7,7 +7,7 @@
     <title>EduGrids - Education & Online Course HTML Template.</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.svg" />
     <!-- Place favicon.ico in the root directory -->
 
     <!-- Web Font -->
@@ -16,26 +16,13 @@
         rel="stylesheet">
 
     <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/css/animate.css" />
+    <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #eee;
-        }
-
-
-
-        .navbar h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
         .create-post-container {
             max-width: 600px;
             margin: 0 auto;
@@ -45,98 +32,30 @@
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         .create-post-container h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-
         #createPostForm {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
         #createPostForm input[type="text"],
         #createPostForm input[type="file"] {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-
-        #createPostForm button {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #createPostForm button:hover {
-            background-color: #0056b3;
-        }
         #caption{
             height: 300px;
             padding: 10px;
             resize: none;
         }
-
-        #logoutButton{
-            background-color: #0095f6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #logoutButton:hover{
-            background-color: #0086e5;
-        }
-        #profile{
-            background-color: #0095f6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #profile:hover{
-            background-color: #0086e5;
-        }
-        #createpost{
-            background-color: #0095f6;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #createpost:hover{
-            background-color: #0086e5;
-        }
-        .logo{
-            font-size: 24px;
-            margin: 0;
-        }
-        .logo a{
-            color: black;
-            text-decoration: none;
-        }
     </style>
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-
-    <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
@@ -145,7 +64,6 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader -->
 
     <!-- Start Header Area -->
     <header class="header navbar-area">
@@ -167,10 +85,9 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="toolbar-login">
-                            <div class="button">
-                                <a href="registration.html">Create an Account</a>
-                                <a href="login.html" class="btn">Log In</a>
-                            </div>
+                            <a href="/register.html" id="registerButton">Create Account</a>
+                            <a href="/login.html" class="btn" id="loginButton">Login</a>
+                            <a href="/login.html" class="btn" id="logoutButton">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -182,8 +99,8 @@
                 <div class="col-lg-12">
                 <div class="nav-inner">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo/schooltalks.png" alt="Logo">
+                        <a class="navbar-brand" href="/cover.html">
+                            <img src="/assets/images/logo/schooltalks.png" alt="Logo">
                         </a>
                         <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -193,26 +110,19 @@
                             <span class="toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                            <ul id="nav" class="navbar-nav ms-auto">
-                                <li class="nav-item"><a class="active" href="index.html">Home</a></li>
-                                <li class="nav-item"><a href="javascript:void(0)">입시정보게시판</a></li>
-                                <li class="nav-item"><a href="javascript:void(0)">자유수다게시판</a></li>
-                                <li class="nav-item">
-                                    <a class="page-scroll dd-menu collapsed" href="javascript:void(0)"
-                                        data-bs-toggle="collapse" data-bs-target="#submenu-1-4"
-                                        aria-controls="navbarSupportedContent" aria-expanded="false"
-                                        aria-label="Toggle navigation">채팅방-1</a>
-
-                                </li>
-                                <li class="nav-item"><a href="javascript:void(0)">채팅방-2</a></li>
-                                <li class="nav-item"><a href="javascript:void(0)">문의</a></li>
-                            </ul>
                             <form class="d-flex search-form">
-                                <input class="form-control me-2" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit"><i
-                                        class="lni lni-search-alt"></i></button>
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                                <button class="btn btn-outline-success" type="button" id="searchButton"><i class="lni lni-search-alt"></i></button>
                             </form>
+                            <ul id="nav" class="navbar-nav ms-auto">
+                                <li class="nav-item"><a href="/cover.html">Home</a></li>
+                                <li class="nav-item"><a class="active" href="study-index.html">입시정보게시판</a></li>
+                                <li class="nav-item"><a href="/post/index.html">자유수다게시판</a></li>
+                                <li class="nav-item"><a href="/chat/index.html">실시간채팅방</a></li>
+                                <li class="nav-item"><a href="/qna.html">문의</a></li>
+                                <li class="nav-item"><a href="profile.html">프로필</a></li>
+                            </ul>
+                            
                         </div> <!-- navbar collapse -->
                     </nav> <!-- navbar -->
                 </div>
@@ -221,24 +131,39 @@
         </div> <!-- container -->
     </header>
     <!-- End Header Area -->
-    <!-- <h1 class="logo"><a href="index.html">wenivgram</a></h1> -->
-    <div class="loginfield">
-        <!-- 사용자가 로그인을 했다면 로그아웃 필드가 여기 생성됩니다. -->
-    </div>
+    <section class="hero-area" style="height: 10px;">
+      
+    </section>
+    <!-- Start Hero Area -->
+    <section class="hero-area" >
+        <div class="container mt-4">
 
-<div class="create-post-container">
-    <h2>게시물 생성</h2>
-<form id="createPostForm">
-    <input type="text" id="title" placeholder="제목을 입력하세요." required>
-    <textarea id="caption" placeholder="내용을 입력하세요." required></textarea>
-    <label for="imageInput">이미지 첨부:</label>
-    <input type="file" id="image" required>
-    <label for="attachmentInput">첨부 파일 선택:</label>
-    <input type="file" id="attachment" required>
-    <button type="submit">Create Post</button>
-</form>
 
-</div>
+            <div class="create-post-container">
+                <h2>📖 게시물 생성</h2>
+            <form id="createPostForm">
+                <input type="text" id="title" placeholder="제목을 입력하세요." required>
+                <textarea id="caption" placeholder="내용을 입력하세요." required></textarea>
+                <label for="imageInput">이미지 첨부:</label>
+                <input type="file" id="image">
+                <label for="attachmentInput">첨부 파일 선택:</label>
+                <input type="file" id="attachment">
+                <button type="submit" class="btn btn-success">Create Post</button>
+            </form>
+                <!-- Dynamically load posts here -->
+                <!-- Example Post -->
+   
+                <!-- Repeat with other posts -->
+            </div>
+        </div>
+
+    </section>
+    <!--/ End Hero Area -->
+
+    <!-- Start About Us Area -->
+    <section class="hero-area" style="height: 30px;">
+      
+    </section>
     <!-- /End About Us Area -->
 
 
@@ -274,13 +199,16 @@
     </a>
 
     <!-- ========================= JS here ========================= -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/count-up.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/tiny-slider.js"></script>
-    <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/create-post.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/count-up.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/tiny-slider.js"></script>
+    <script src="/assets/js/glightbox.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/logout.js"></script>
+    <script src="/assets/js/study/study-create-post.js"></script>
+
+
     <script type="text/javascript">
         //========= Hero Slider 
         tns({
@@ -322,14 +250,7 @@
                 }
             }
         });
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
+
     </script>
 </body>
 
