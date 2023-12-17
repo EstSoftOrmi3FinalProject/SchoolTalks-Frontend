@@ -40,15 +40,24 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
     const formData = new FormData();
     const title = document.getElementById('title').value;
     const caption = document.getElementById('caption').value;
-    const image = document.getElementById('image').files[0];
-    const attachment = document.getElementById('attachment').files[0]; // 추가된 필드에서 첨부파일 가져오기
 
-    formData.append('title', title); // API 요청 본문에 제목 추가
+    // 필수 필드인 제목과 캡션 추가
+    formData.append('title', title);
     formData.append('caption', caption);
-    formData.append('image', image);
-    formData.append('attachment', attachment); // API 요청 본문에 첨부파일 추가
 
-    fetch('http://127.0.0.1:8000/posts/create/', {
+    // 이미지가 선택되었는지 확인
+    const image = document.getElementById('image').files[0];
+    if (image) {
+        formData.append('image', image);
+    }
+
+    // 첨부파일이 선택되었는지 확인
+    const attachment = document.getElementById('attachment').files[0];
+    if (attachment) {
+        formData.append('attachment', attachment);
+    }
+
+    fetch('http://127.0.0.1:8000/study/create/', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -64,7 +73,7 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
     .then(data => {
         console.log('Post created:', data);
         // 성공적으로 게시물이 생성된 후의 처리 로직
-        window.location.href = 'index.html';
+        window.location.href = 'study-index.html';
     })
     .catch(error => {
         console.error('Error:', error);

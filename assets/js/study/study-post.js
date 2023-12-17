@@ -16,21 +16,18 @@ document.getElementById('searchButton').addEventListener('click', function() {
 
 });
 
+// create post 버튼 클릭 이벤트 처리
 function setupUIBasedOnAccessToken(accessToken) {
     if (accessToken) {
-        document.querySelector('.loginfield').innerHTML = `
-            <button id="logoutButton">Logout</button>
-            <button id="createpost">Create</button>
-            <button id="profile">Profile</button>
+        document.querySelector('.createfield').innerHTML = `
+        <button id="createpost" class="btn btn-success">Create</button>
         `;
         setupEventListeners();
     }
 }
 
 function setupEventListeners() {
-
-
-    document.getElementById('createpost')?.addEventListener('click', function() {
+    document.getElementById('createpost').addEventListener('click', function() {
         window.location.href = 'create-post.html';
     });
 
@@ -96,18 +93,22 @@ function fetchPosts(pageNumber) {
     });
 }
 
-
+// UI수정
 function createPostElement(post) {
     const postElement = document.createElement('div');
     postElement.className = 'post';
     postElement.innerHTML = `
+    <div class="post-card">
         <div class="post-content">
             <h3>${post.title}</h3>
             <p>${post.caption}</p>
+
         </div>
         <div class="post-footer">
-            <a href="post.html?postId=${post.id}" class="post-link">더보기</a>
+            <a href="post.html?postId=${post.id}" class="post-link">...더보기</a>
         </div>
+        </div>
+
     `;
     return postElement;
 }

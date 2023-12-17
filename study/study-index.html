@@ -1,3 +1,6 @@
+<!-- cs수정 -->
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -22,6 +25,67 @@
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <style>
+        /* 포스트 격자 스타일 */
+/* 포스트 격자 스타일 */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 칼럼으로 설정 */
+  gap: 20px; /* 격자 간격 */
+  margin-top: 20px; /* 상단 여백 */
+
+}
+
+.post-card {
+  background: #f8e696; /* 노란 메모지 색상으로 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 유지 */
+  border-radius: 10px; /* 모서리 둥글게 유지 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 유지 */
+  transition: transform 0.3s ease; /* 호버 효과 유지 */
+  height: 20vh;
+  /* 기타 필요한 스타일을 여기에 추가 */
+}
+
+.post-card:hover {
+  transform: translateY(-5px); /* 호버 시 위로 이동 */
+}
+
+/* 여기에 필요한 기타 스타일을 추가 */
+
+
+.post-card h3 {
+    font-size: 20px;
+    margin: 0;
+    padding: 15px;
+    background: #f8e696; /* 제목 배경색 */
+    border-bottom: 1px solid #eaeaea; /* 제목 아래 테두리 */
+}
+
+.post-card p {
+    padding: 15px;
+}
+
+.post-card .post-footer {
+    padding: 15px;
+    text-align: right;
+}
+
+.post-card .post-link {
+    text-decoration: none;
+    color: #041d08; /* 링크 색상 */
+}
+
+/* 더보기 링크 스타일링 */
+.post-link {
+    background: #f7f7f7;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+    </style>
 
 </head>
 
@@ -50,20 +114,25 @@
     <!-- End Header Area -->
 
     <!-- Start Hero Area -->
-    <section class="hero-area" style = "height: 60vh;">
+    <section class="hero-area">
         <div class="container mt-4">
-            <div class="posts" id="posts">
-                <!-- Dynamically load posts here -->
-                <!-- Example Post -->
-    
-                <!-- Repeat with other posts -->
+            <div class="createfield">
             </div>
+            <div class="text-center">
+                <h2>📚입시정보게시판</h2>
+            </div>
+            <div class="posts-grid" id="posts">
+                <!-- 각 포스트에 대한 반복 -->
+
+                <!-- 다른 포스트들도 같은 방식으로 추가 -->
+              </div>
+              
         </div>
      <!-- Pagination -->
     <!-- Pagination -->
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center" id="paginationContainer" style="display: flex; justify-content: center;">
-      
+
           
     </nav>
     </section>
@@ -115,8 +184,12 @@
     <script src="/assets/js/glightbox.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/logout.js"></script>
+<<<<<<< HEAD
     <script src="/assets/js/include.js"></script>
     <script src="/assets/js/study-post.js"></script>
+=======
+    <script src="/assets/js/study/study-post.js"></script>
+>>>>>>> 45f125411e4e10fc7ad2ad7fd6e2b823c4f45bb5
 
 
     <script type="text/javascript">
