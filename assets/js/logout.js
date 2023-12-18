@@ -7,11 +7,14 @@ function logout() {
         document.getElementById("registerButton").style.display = "none";
         document.getElementById("loginButton").style.display = "none";
         document.getElementById("logoutButton").style.display = "block";
+        document.getElementById("navprofile").style.display = "block";
+
     } else {
         // 사용자가 로그아웃한 경우
         document.getElementById("registerButton").style.display = "none";
         document.getElementById("logoutButton").style.display = "none";
         document.getElementById("loginButton").style.display = "block";
+        document.getElementById("navprofile").style.display = "none";
     }
 
     document

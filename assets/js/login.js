@@ -24,7 +24,7 @@ if (previousPage) {
 window.location.href = previousPage;
 } else {
 // 이전 페이지 정보가 없을 경우 기본 페이지로 리다이렉트
-window.location.href = 'cover.html';
+window.location.href = 'index.html';
 }
         } else {
             alert('아이디 또는 패스워드가 일치하지 않습니다.');
