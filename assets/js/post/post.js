@@ -14,6 +14,7 @@ function loadpost() {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
     })
         .then((res) => res.json())
@@ -28,8 +29,12 @@ function loadpost() {
             author.innerHTML = data.author_name;
             date.innerHTML = formattedDate;
             hits.innerHTML = data.hits;
-            like.innerHTML = data.like;
+            like.innerHTML = data.likecount;
             content.innerHTML = data.content;
+            console.log(data.is_like);
+            if (data.is_like) {
+                btnLike.classList.add("active");
+            }
             data.comments.forEach((comment) => {
                 const commentList = document.querySelector(".comment-list");
                 const commentItem = document.createElement("li");
@@ -56,9 +61,9 @@ btnLike.addEventListener("click", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const post_id = urlParams.get("post_id");
     if (btnLike.classList.contains("active")) {
-        likeon(post_id);
-    } else {
         likeoff(post_id);
+    } else {
+        likeon(post_id);
     }
 });
 
@@ -69,17 +74,22 @@ function likeon(post_id) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
-    }).then((res) => {
-        if (res.status === 401) {
-            alert("로그인이 필요합니다.");
-        }
-        if (res.status === 201) {
-            btnLike.classList.add("active");
-        }
-        if (res.status === 409) {
-            btnLike.classList.add("active");
-        }
-    });
+    })
+        .then((res) => {
+            if (res.status === 401) {
+                alert("로그인이 필요합니다.");
+            }
+            if (res.status === 201) {
+                btnLike.classList.add("active");
+            }
+            if (res.status === 409) {
+                btnLike.classList.add("active");
+            }
+            return res.json();
+        })
+        .then((data) => {
+            like.innerHTML = data.likecount;
+        });
 }
 
 function likeoff(post_id) {
@@ -89,12 +99,17 @@ function likeoff(post_id) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
-    }).then((res) => {
-        if (res.status === 401) {
-            alert("로그인이 필요합니다.");
-        }
-        if (res.status === 204) {
-            btnLike.classList.remove("active");
-        }
-    });
+    })
+        .then((res) => {
+            if (res.status === 401) {
+                alert("로그인이 필요합니다.");
+            }
+            if (res.status === 200) {
+                btnLike.classList.remove("active");
+            }
+            return res.json();
+        })
+        .then((data) => {
+            like.innerHTML = data.likecount;
+        });
 }
