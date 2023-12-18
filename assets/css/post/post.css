@@ -1,0 +1,126 @@
+:root {
+    --main-color: rgb(55, 170, 236);
+    --main-rgb: 55, 171, 236;
+    --outline-border: rgb(55, 160, 236);
+    --red-color: rgb(243, 124, 75);
+    --red-rgb: 243, 124, 75;
+    --black-color: #28303f;
+    --white-color: #fff;
+    --gray-color: #767676;
+    --border-color: #ddd;
+    --gray-background-light: #f9f9f9;
+    --gray-background: #f5f5f5;
+    --gray-text: #6f6f6f;
+    --border-radius: 0.4em;
+}
+
+.title {
+    display: flex;
+    margin: 1.2em 0 0.6em 0.5em;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+}
+
+.menu div {
+    display: flex;
+    gap: 10px;
+    color: black;
+    font-size: 16px;
+}
+
+.start .author::after,
+.end .hits::after {
+    content: "|";
+}
+
+.content {
+    margin: 2.6em 15vw 0 15vw;
+    color: black;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    margin: 2.6em 15vw 0 15vw;
+    color: black;
+}
+
+.comment-list {
+    list-style: none;
+    gap: 1em;
+}
+
+.comment-item {
+    display: flex;
+}
+
+.comment-author {
+    width: 8em;
+}
+
+.comment-content {
+    flex-grow: 1;
+    margin: 0 0 0 1em;
+}
+
+.comment-date {
+    width: 8em;
+}
+
+.btn-area {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-like {
+    width: 12rem;
+    height: 4rem;
+    padding-left: 3rem;
+    border: 1px solid rgba(var(--red-rgb), 0.5);
+    border-radius: var(--border-radius);
+    background: var(--white-color) url(/assets/images/post/icon-like.svg)
+        no-repeat 2.5rem 50% / 2.4rem;
+    transition: all 0.3s;
+}
+.btn-like:hover,
+.btn-like.active {
+    background: var(--red-color) url(/assets/images/post/icon-like-white.svg)
+        no-repeat 2.5rem 50% / 2.4rem;
+    color: var(--white-color);
+}
+.btn-like:focus {
+    outline-color: rgba(var(--red-rgb), 0.2);
+    box-shadow: none;
+}
+
+.btn-modify,
+.btn-delete {
+    width: 4rem;
+    height: 4rem;
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+}
+.btn-modify {
+    background: var(--gray-background) url(/assets/images/post/icon-modify.svg)
+        no-repeat 50% 50% / 1.6rem;
+    right: 13rem;
+}
+.btn-modify:hover {
+    background: var(--main-color) url(/assets/images/post/icon-modify-white.svg)
+        no-repeat 50% 50% / 1.6rem;
+}
+
+.btn-delete {
+    background: var(--gray-background) url(/assets/images/post/icon-delete.svg)
+        no-repeat 50% 50% / 1.6rem;
+}
+
+.btn-delete:hover {
+    background: var(--red-color) url(/assets/images/post/icon-delete-white.svg)
+        no-repeat 50% 50% / 1.6rem;
+}
