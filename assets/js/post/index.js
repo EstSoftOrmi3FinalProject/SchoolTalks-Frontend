@@ -1,4 +1,4 @@
-const btnWrite = document.querySelector(".btn-write");
+const btnWrite = document.querySelector("#btn-write");
 
 function postload() {
     const postlist = document.querySelector(".postlist");
@@ -31,7 +31,16 @@ function postload() {
             });
     });
 }
+
+function writeload() {
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+        btnWrite.classList.remove("d-none");
+    }
+}
+
 postload();
+writeload();
 
 btnWrite.addEventListener("click", function () {
     window.location.href = "/post/write.html";

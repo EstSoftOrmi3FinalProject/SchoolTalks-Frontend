@@ -22,3 +22,7 @@ a {
     --gray-text: #6f6f6f;
     --border-radius: 0.4em;
 }
+
+d-none {
+    display: none;
+}

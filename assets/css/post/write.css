@@ -42,20 +42,20 @@
     font-weight: bold;
 }
 
-.post-title {
+#post-title {
     padding: 5px;
     height: 3.5em;
     border: 1px solid lightgray;
     border-radius: 10px;
 }
 
-.post-content {
+#post-content {
     height: 500px;
     resize: none;
     border-radius: 10px;
 }
 
-.post-submit {
+#post-submit {
     margin-top: 1em;
     padding: 10px;
     border: 1px solid #eee;
@@ -64,4 +64,12 @@
     color: black;
     font-size: 18px;
     font-weight: bold;
+    border: 1px solid rgba(var(--main-rgb), 0.5);
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+}
+
+#post-submit:hover {
+    background: var(--main-color);
+    color: var(--white-color);
 }
