@@ -70,3 +70,12 @@
     background: var(--main-color) url(/assets/images/post/icon-write-white.svg) no-repeat 2.5rem 50% / 2.4rem;
     color: var(--white-color);
 }
+
+#btn-search {
+    width: 4rem;
+    height: 4rem;
+    border: 0;
+    border-radius: var(--border-radius);
+    background: var(--white-color) url(/assets/images/post/icon-search.svg) no-repeat 50% 50% / 1.5rem;
+    transition: all 0.3s;
+}
