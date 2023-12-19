@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="stylesheet" href="/assets/css/post/base.css" />
         <link rel="stylesheet" href="/assets/css/post/index.css" />
+        <link rel="stylesheet" href="/assets/css/post/btn.css" />
     </head>
 
     <body>
@@ -59,7 +60,7 @@
 
         <!-- Start Hero Area -->
         <section class="hero-area">
-            <div class="container">
+            <div class="postcontainer">
                 <h2 class="title">자유게시판</h2>
                 <table class="table postlist">
                     <tr>
@@ -70,6 +71,9 @@
                         <th class="col-1 text-center">조회수</th>
                     </tr>
                 </table>
+                <div class="btn-area">
+                    <button class="btn btn-primary btn-write">글쓰기</button>
+                </div>
             </div>
         </section>
         <!--/ End Hero Area -->
@@ -124,51 +128,5 @@
         <script src="/assets/js/logout.js"></script>
         <script src="/assets/js/include.js"></script>
         <script src="/assets/js/post/index.js"></script>
-
-        <script type="text/javascript">
-            //========= Hero Slider
-            tns({
-                container: ".hero-slider",
-                items: 1,
-                slideBy: "page",
-                autoplay: false,
-                mouseDrag: true,
-                gutter: 0,
-                nav: true,
-                controls: false,
-                controlsText: [
-                    '<i class="lni lni-arrow-left"></i>',
-                    '<i class="lni lni-arrow-right"></i>',
-                ],
-            });
-            //====== Clients Logo Slider
-            tns({
-                container: ".client-logo-carousel",
-                slideBy: "page",
-                autoplay: true,
-                autoplayButtonOutput: false,
-                mouseDrag: true,
-                gutter: 15,
-                nav: false,
-                controls: false,
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    540: {
-                        items: 3,
-                    },
-                    768: {
-                        items: 4,
-                    },
-                    992: {
-                        items: 4,
-                    },
-                    1170: {
-                        items: 6,
-                    },
-                },
-            });
-        </script>
     </body>
 </html>

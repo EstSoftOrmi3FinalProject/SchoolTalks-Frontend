@@ -1,3 +1,5 @@
+const btnWrite = document.querySelector(".btn-write");
+
 function postload() {
     const postlist = document.querySelector(".postlist");
     document.addEventListener("DOMContentLoaded", function () {
@@ -10,7 +12,6 @@ function postload() {
             .then((res) => res.json())
             .then((data) => {
                 data.forEach((post) => {
-                    cons;
                     const dateObject = new Date(post.created_at);
                     const formattedDate = `
                     ${dateObject.getFullYear()} -
@@ -31,3 +32,7 @@ function postload() {
     });
 }
 postload();
+
+btnWrite.addEventListener("click", function () {
+    window.location.href = "/post/write.html";
+});

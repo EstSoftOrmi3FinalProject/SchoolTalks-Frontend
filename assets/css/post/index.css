@@ -4,3 +4,12 @@
     text-align: center;
     margin: 16px 0 40px 0;
 }
+
+.postcontainer {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 70px;
+    background: white;
+    height: 120%;
+    min-height: 1000px;
+}

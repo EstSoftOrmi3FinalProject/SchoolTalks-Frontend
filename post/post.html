@@ -28,8 +28,9 @@
         <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="stylesheet" href="/assets/css/post/base.css" />
         <link rel="stylesheet" href="/assets/css/post/post.css" />
+        <link rel="stylesheet" href="/assets/css/post/comment.css" />
+        <link rel="stylesheet" href="/assets/css/post/btn.css" />
     </head>
-
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">
@@ -59,30 +60,39 @@
 
         <!-- Start Hero Area -->
         <section class="hero-area">
-            <div class="container">
-                <h3 class="title">제목라인</h3>
+            <!-- Start Post Area -->
+            <div class="postcontainer">
+                <div class="title-wrap">
+                    <h3 class="title">404 Not found</h3>
+                    <div class="btn-group">
+                        <span class="btn-modify"></span>
+                        <span class="btn-delete"></span>
+                    </div>
+                </div>
                 <div class="menu">
                     <div class="start">
-                        <div class="author">작성자</div>
-                        <div class="date">날짜</div>
+                        <div class="author"></div>
+                        <div class="date"></div>
                     </div>
                     <div class="end">
-                        <div class="hits">조회수</div>
-                        <div class="like">좋아요</div>
+                        <div class="hits"></div>
+                        <div class="like"></div>
                     </div>
                 </div>
-                <div class="content">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quo praesentium, nihil repudiandae, quam molestiae quas fuga
-                    distinctio, magnam voluptates nostrum maiores harum natus!
-                    Cum, vero magni maiores asperiores non deleniti.
-                </div>
+                <div class="content">내용을 찾을 수 없습니다</div>
                 <!-- 버튼을 누르면 좋아요 생성 -->
                 <div class="btn-area">
-                    <button class="btn btn-like">Like</button>
+                    <button class="btn btn-like">좋아요</button>
                 </div>
-                <div class="comment-list"></div>
+                <div class="comment-container">
+                    <div class="comment-title">
+                        <h4>댓글</h4>
+                    </div>
+                    <div class="comment-list"></div>
+                    <div class="comment-form"></div>
+                </div>
             </div>
+            <!--/ End Post Area -->
         </section>
         <!--/ End Hero Area -->
 

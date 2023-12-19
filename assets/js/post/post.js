@@ -5,17 +5,32 @@ const hits = document.querySelector(".hits");
 const like = document.querySelector(".like");
 const content = document.querySelector(".content");
 const btnLike = document.querySelector(".btn-like");
+const urlParams = new URLSearchParams(window.location.search);
+const post_id = urlParams.get("post_id");
+const commentList = document.querySelector(".comment-list");
+const commentForm = document.querySelector(".comment-form");
 
-function loadpost() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const post_id = urlParams.get("post_id");
+document.addEventListener("DOMContentLoaded", function () {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+        const header = {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        };
+        loadPost(header);
+        loadCommentForm(token);
+    } else {
+        const header = {
+            "Content-Type": "application/json",
+        };
+        loadPost(header);
+    }
+});
 
+function loadPost(header) {
     fetch(`http://127.0.0.1:8000/post/${post_id}`, {
         method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        },
+        headers: header,
     })
         .then((res) => res.json())
         .then((data) => {
@@ -36,7 +51,6 @@ function loadpost() {
                 btnLike.classList.add("active");
             }
             data.comments.forEach((comment) => {
-                const commentList = document.querySelector(".comment-list");
                 const commentItem = document.createElement("li");
                 const dateObject = new Date(comment.created_at);
                 const formattedDate = `
@@ -55,11 +69,53 @@ function loadpost() {
             });
         });
 }
-loadpost();
+
+function loadCommentForm(header, user_name) {
+    commentForm.innerHTML += `
+    <form class="comment-form">
+        <div class="comment-author">댓글</div>
+        <textarea class="form-control comment-content" name="content" placeholder="댓글을 입력하세요."></textarea>
+        <button class="btn btn-primary btn-sm comment-submit">댓글 작성</button>
+    </form>
+    `;
+    submitComment();
+}
+
+function submitComment() {
+    const commentSubmit = document.querySelector(".comment-submit");
+    commentSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
+        const content = document.querySelector(
+            ".comment-form > .comment-content"
+        ).value;
+        console.log(content);
+        const data = {
+            content: content,
+        };
+        fetch(`http://127.0.0.1:8000/post/${post_id}/comment/create`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => {
+                if (res.status === 401) {
+                    alert("로그인이 필요합니다.");
+                }
+                if (res.status === 201) {
+                    alert("댓글이 작성되었습니다.");
+                    // window.location.reload();
+                }
+            })
+            .then((data) => {
+                console.log(data);
+            });
+    });
+}
 
 btnLike.addEventListener("click", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const post_id = urlParams.get("post_id");
     if (btnLike.classList.contains("active")) {
         likeoff(post_id);
     } else {
