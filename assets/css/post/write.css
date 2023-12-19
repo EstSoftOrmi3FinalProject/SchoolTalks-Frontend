@@ -1,0 +1,67 @@
+.post-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    gap: 1em;
+    margin: 1em auto;
+    padding: 3em;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    color: black;
+}
+
+.comment-content {
+    height: 500px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    gap: 1em;
+    margin: 1em auto;
+    padding: 3em;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    color: black;
+}
+
+.form-group {
+    display: flex;
+    gap: 1em;
+}
+
+.form-group label {
+    display: flex;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.post-title {
+    padding: 5px;
+    height: 3.5em;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.post-content {
+    height: 500px;
+    resize: none;
+    border-radius: 10px;
+}
+
+.post-submit {
+    margin-top: 1em;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #eee;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
