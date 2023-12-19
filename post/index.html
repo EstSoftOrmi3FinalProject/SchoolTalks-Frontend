@@ -57,7 +57,79 @@
 
     <!-- Start About Us Area -->
     <section class="about-us section">
-      
+      <!-- HTML 파일에 버튼을 표시할 곳을 마련합니다. -->
+<div id="captcha-container">
+    <!-- 캡차 생성 결과가 여기에 표시됩니다. -->
+  </div>
+  <div id="inquiry-form-container">
+    <!-- 문의 폼이 여기에 동적으로 생성됩니다. -->
+  </div>
+  
+  <!-- jQuery 라이브러리를 로드합니다. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+    // 캡차 생성 함수
+    function generateCaptcha() {
+      $.get('http://127.0.0.1:8000/captcha/', function(data) {
+        if (data.captcha_question) {
+          // 캡차 문제를 표시
+          const captchaContainer = $('#captcha-container');
+          captchaContainer.html(`<p>${data.captcha_question}</p>`);
+  
+          // 문의 폼을 생성
+          const inquiryFormContainer = $('#inquiry-form-container');
+          const inquiryForm = $('<form>', {
+            id: 'inquiry-form',
+            submit: function(event) {
+              event.preventDefault();
+              // 폼이 제출될 때 처리할 코드를 여기에 추가합니다.
+              const emailSubject = $('#email_subject').val();
+              const emailContent = $('#email_content').val();
+              submitInquiry(emailSubject, emailContent);
+            }
+          });
+          inquiryForm.html(`
+            <label for="email_subject">이메일 주제:</label>
+            <input type="text" id="email_subject" name="email_subject"><br>
+            <label for="email_content">이메일 내용:</label>
+            <textarea id="email_content" name="email_content"></textarea><br>
+            <button type="submit">문의 제출</button>
+          `);
+  
+          // 문의 폼을 문의 폼 컨테이너에 추가
+          inquiryFormContainer.html(inquiryForm);
+        } else {
+          console.error('캡차 생성 오류:', data.error);
+        }
+      });
+    }
+  
+    // 문의 제출 함수
+    function submitInquiry(emailSubject, emailContent) {
+      $.ajax({
+        url: 'http://127.0.0.1:8000/inquiries/', // 실제 API 경로로 수정하세요.
+        type: 'POST',
+        data: {
+          email: 'example@example.com', // 이메일 주소를 수정하세요.
+          subject: emailSubject,
+          content: emailContent
+        },
+        success: function() {
+          alert('문의가 성공적으로 제출되었습니다.');
+          // 성공적으로 제출되었을 때 필요한 처리를 추가하세요.
+        },
+        error: function() {
+          alert('문의 제출에 실패하였습니다.');
+          // 제출 실패 시 필요한 처리를 추가하세요.
+        }
+      });
+    }
+  
+    // 페이지 로드 시 캡차 생성 함수 호출
+    generateCaptcha();
+  </script>
+  
     </section>
     <!-- /End About Us Area -->
 

@@ -1,0 +1,32 @@
+.signup-container {
+    width: 500px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    margin: 0 auto; /* 수평 가운데 정렬을 위한 추가 */
+    }
+
+        .signup-container h2 {
+            text-align: center;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .signup-form input {
+            padding: 8px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+        }
+        .signup-form button {
+            padding: 10px;
+            background-color: #43e679;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signup-form button:hover {
+            background-color: #53d142;
+        }
