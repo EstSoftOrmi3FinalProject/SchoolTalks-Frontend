@@ -68,13 +68,14 @@ function loadPost(header) {
                 `;
                 commentList.appendChild(commentItem);
             });
+            onModifyRemoveBtn(data.author);
         });
 }
 
 function loadCommentForm(header, user_name) {
     commentForm.innerHTML += `
     <form class="comment-form">
-        <div class="comment-author">댓글</div>
+        <div class="comment-author">${localStorage.getItem("view_name")}</div>
         <textarea class="form-control comment-content" name="content" placeholder="댓글을 입력하세요."></textarea>
         <button class="btn btn-primary btn-sm comment-submit">댓글 작성</button>
     </form>
@@ -105,7 +106,7 @@ function submitComment() {
             }
             if (res.status === 201) {
                 alert("댓글이 작성되었습니다.");
-                // window.location.reload();
+                window.location.reload();
             }
         });
     });
@@ -133,6 +134,7 @@ function likeon(post_id) {
         .then((res) => {
             if (res.status === 401) {
                 alert("로그인이 필요합니다.");
+                return;
             }
             if (res.status === 201) {
                 btnLike.classList.add("active");
@@ -158,6 +160,7 @@ function likeoff(post_id) {
         .then((res) => {
             if (res.status === 401) {
                 alert("로그인이 필요합니다.");
+                return;
             }
             if (res.status === 200) {
                 btnLike.classList.remove("active");
@@ -167,6 +170,17 @@ function likeoff(post_id) {
         .then((data) => {
             like.innerHTML = data.likecount;
         });
+}
+
+// 수정, 삭제 버튼 활성화
+// 로그인한 사용자와 게시글 작성자가 같을 경우에만 활성화
+
+function onModifyRemoveBtn(author_id) {
+    const user_id = localStorage.getItem("user_id");
+    if (user_id == author_id) {
+        btnModify.classList.remove("d-none");
+        btnDelete.classList.remove("d-none");
+    }
 }
 
 // 수정, 삭제 버튼
