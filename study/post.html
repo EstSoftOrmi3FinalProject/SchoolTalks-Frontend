@@ -1,3 +1,6 @@
+<!-- cs수정 -->
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
     <head>
@@ -26,52 +29,245 @@
         <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
         <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
-        <link rel="stylesheet" href="/assets/css/post.css" />
-    </head>
+    <style>
 
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">
-                You are using an <strong>outdated</strong> browser. Please
-                <a href="https://browsehappy.com/">upgrade your browser</a> to
-                improve your experience and security.
-            </p>
-        <![endif]-->
+        .postbox {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background: white;
+            height: 120%;
+        }
 
-        <!-- Preloader -->
-        <div class="preloader">
-            <div class="preloader-inner">
-                <div class="preloader-icon">
-                    <span></span>
-                    <span></span>
-                </div>
+        #postContainer {
+            max-width: 600px;
+            padding: 15px;
+            background: white;
+        }
+
+        #postContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #postContainer p {
+            margin: 10px 0;
+        }
+
+        #likeButton {
+            max-width: 60px;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            background-color: rgb(173, 218, 13); /* 연두색 배경 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #likeButton button:hover {
+        background-color: darkgreen; /* 마우스 호버 시 배경색 변경 */
+    }
+
+
+        #commentsContainer {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background: white;
+            border: 1px solid #dbdbdb;
+        }
+
+        #commentForm {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background: white;
+            border: 1px solid #dbdbdb;
+            display: flex;
+            gap: 10px;
+        }
+
+        #commentForm input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+
+        #commentForm button {
+            background-color: #b1f796;
+            color: rgb(1, 27, 16);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #commentForm button:hover {
+            background-color: #98e718;
+        }
+
+        #profile{
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #profile:hover{
+            background-color: #0086e5;
+        }
+        #createpost{
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #createpost:hover{
+            background-color: #0086e5;
+        }
+        
+        .logo{
+            font-size: 24px;
+            margin: 0;
+        }
+        .logo a{
+            color: black;
+            text-decoration: none;
+        }
+
+/* 수정 및 삭제 버튼 스타일 */
+#editDeleteButtons {
+    text-align: center; /* 버튼들을 가운데 정렬합니다. */
+    margin-top: 20px; /* 필요에 따라 상단 마진 조정 */
+}
+
+#editPostButton,
+#deletePostButton {
+    background-color: #438162;;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* 수정과 삭제 버튼 사이에 오른쪽 마진 추가 */
+}
+
+#editPostButton:hover,
+#deletePostButton:hover {
+    background-color: #438162;
+}
+
+
+
+
+/* 삭제 버튼 스타일 */
+.editCommentButton {
+    background-color: #57c52c;
+    border: none;
+}
+
+/* 삭제 버튼 호버 효과 */
+.editCommentButton:hover {
+    background-color: #96ecb3;
+    border: none;
+}
+
+
+/* 삭제 버튼 스타일 */
+.deleteCommentButton {
+    background-color: #e74c3c;
+    border: none;
+}
+
+/* 삭제 버튼 호버 효과 */
+.deleteCommentButton:hover {
+    background-color: #c0392b;
+    border: none;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
             </div>
         </div>
+    </div>
         <!-- /End Preloader -->
 
-        <!-- Start Header Area -->
-        <header
-            data-include-file="./header.html"
-            class="header navbar-area includeJs"
-        ></header>
-        <!-- End Header Area -->
-        <!-- <h1 class="logo"><a href="index.html">wenivgram</a></h1> -->
-        <div class="loginfield">
-            <!-- 사용자가 로그인을 했다면 로그아웃 필드가 여기 생성됩니다. -->
-        </div>
-        <!-- Start Hero Area -->
+    <!-- Start Header Area -->
+    <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
+    <!-- End Header Area -->
 
-        <div id="postContainer">
-            <!-- 게시물 상세 정보가 여기에 표시됩니다 -->
-        </div>
+    <!-- Start Hero Area -->
+    <section class="hero-area">
+        <div class="container mt-4">
 
-        <div id="likeButton">
-            <button>좋아요</button>
-        </div>
+            <div class="text-center">
+                <h2>📚입시정보게시판</h2>
+            </div>
+            <div class = "postbox">
+            <div id="postContainer">
+                <!-- 게시물 상세 정보가 여기에 표시됩니다 -->
+                
+            </div>
+        
+            <div id="likeButton">
+                <button>좋아요</button>
+            </div>
+            </div>
+            <!-- <div id="likeButton">
+                <i id="heartIcon" class="fas fa-heart"></i>
+            </div> -->
+            
+            <div id="commentsContainer"></div>
 
-        <div id="commentsContainer">
-            <!-- 댓글이 여기에 표시됩니다 -->
+        
+            <form id="commentForm">
+                <input type="text" id="commentText" placeholder="댓글 달기">
+                <button type="submit">댓글 작성</button>
+            </form>
+            <div id="editDeleteButtons">
+                <!-- 게시물 작성자인 경우에만 수정과 삭제 버튼을 보이게 합니다 -->
+                <button id="editPostButton">수정</button>
+                <button id="deletePostButton">삭제</button>
+            </div>
+              
         </div>
+     <!-- Pagination -->
+
+    </section>
+
+    <!-- Start About Us Area -->
+    <!-- Start About Us Area -->
+    <section class="about-us section" style="height: 30vh; display: flex; justify-content: center; align-items: center;">
+        <iframe src="https://ads-partners.coupang.com/widgets.html?id=738872&template=carousel&trackingCode=AF1578060&subId=&width=680&height=140&tsource=" width="680" height="140" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
+    </section>
+    <!-- /End About Us Area -->
+
+
 
         <form id="commentForm">
             <input type="text" id="commentText" placeholder="댓글 달기..." />
@@ -119,66 +315,63 @@
             <i class="lni lni-chevron-up"></i>
         </a>
 
-        <!-- ========================= JS here ========================= -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/count-up.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/tiny-slider.js"></script>
-        <script src="assets/js/glightbox.min.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/post-pk.js"></script>
-        <script type="text/javascript">
-            //========= Hero Slider
-            tns({
-                container: ".hero-slider",
-                items: 1,
-                slideBy: "page",
-                autoplay: false,
-                mouseDrag: true,
-                gutter: 0,
-                nav: true,
-                controls: false,
-                controlsText: [
-                    '<i class="lni lni-arrow-left"></i>',
-                    '<i class="lni lni-arrow-right"></i>',
-                ],
-            });
-            //====== Clients Logo Slider
-            tns({
-                container: ".client-logo-carousel",
-                slideBy: "page",
-                autoplay: true,
-                autoplayButtonOutput: false,
-                mouseDrag: true,
-                gutter: 15,
-                nav: false,
-                controls: false,
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    540: {
-                        items: 3,
-                    },
-                    768: {
-                        items: 4,
-                    },
-                    992: {
-                        items: 4,
-                    },
-                    1170: {
-                        items: 6,
-                    },
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/count-up.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/tiny-slider.js"></script>
+    <script src="/assets/js/glightbox.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/logout.js"></script>
+    <script src="/assets/js/include.js"></script>
+    <script src="/assets/js/study/study-post-pk.js"></script>
+    <script src="/assets/js/study/study-post-pk-like.js"></script>
+    <script src="/assets/js/study/delete.js"></script>
+
+
+    <script type="text/javascript">
+        //========= Hero Slider 
+        tns({
+            container: '.hero-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        });
+        //====== Clients Logo Slider
+        tns({
+            container: '.client-logo-carousel',
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            mouseDrag: true,
+            gutter: 15,
+            nav: false,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
                 },
-            });
-            //========= glightbox
-            GLightbox({
-                href: "https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM",
-                type: "video",
-                source: "youtube", //vimeo, youtube or local
-                width: 900,
-                autoplayVideos: true,
-            });
-        </script>
-    </body>
+                540: {
+                    items: 3,
+                },
+                768: {
+                    items: 4,
+                },
+                992: {
+                    items: 4,
+                },
+                1170: {
+                    items: 6,
+                }
+            }
+        });
+
+    </script>
+</body>
+
 </html>
