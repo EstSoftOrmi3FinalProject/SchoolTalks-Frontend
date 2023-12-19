@@ -27,10 +27,10 @@
         <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
         <link rel="stylesheet" href="/assets/css/post/base.css" />
-        <link rel="stylesheet" href="/assets/css/post/index.css" />
+        <link rel="stylesheet" href="/assets/css/post/post.css" />
+        <link rel="stylesheet" href="/assets/css/post/comment.css" />
         <link rel="stylesheet" href="/assets/css/post/btn.css" />
     </head>
-
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">
@@ -60,23 +60,39 @@
 
         <!-- Start Hero Area -->
         <section class="hero-area">
+            <!-- Start Post Area -->
             <div class="post-container">
-                <h2 class="title">자유게시판</h2>
-                <table class="table postlist">
-                    <tr>
-                        <th class="col-1 text-center">글번호</th>
-                        <th class="col text-center">글제목</th>
-                        <th class="col-2 text-center">작성자</th>
-                        <th class="col-2 text-center">작성일자</th>
-                        <th class="col-1 text-center">조회수</th>
-                    </tr>
-                </table>
+                <div class="title-wrap">
+                    <h3 class="title">404 Not found</h3>
+                    <div class="btn-group">
+                        <span class="btn-modify"></span>
+                        <span class="btn-delete"></span>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="start">
+                        <div class="author"></div>
+                        <div class="date"></div>
+                    </div>
+                    <div class="end">
+                        <div class="hits"></div>
+                        <div class="like"></div>
+                    </div>
+                </div>
+                <div class="content">내용을 찾을 수 없습니다</div>
+                <!-- 버튼을 누르면 좋아요 생성 -->
                 <div class="btn-area">
-                    <button class="btn btn-primary d-none" id="btn-write">
-                        글쓰기
-                    </button>
+                    <button class="btn btn-like">좋아요</button>
+                </div>
+                <div class="comment-container">
+                    <div class="comment-title">
+                        <h4>댓글</h4>
+                    </div>
+                    <div class="comment-list"></div>
+                    <div class="comment-form"></div>
                 </div>
             </div>
+            <!--/ End Post Area -->
         </section>
         <!--/ End Hero Area -->
 
@@ -129,6 +145,6 @@
         <script src="/assets/js/main.js"></script>
         <script src="/assets/js/logout.js"></script>
         <script src="/assets/js/include.js"></script>
-        <script src="/assets/js/post/index.js"></script>
+        <script src="/assets/js/post/post.js"></script>
     </body>
 </html>

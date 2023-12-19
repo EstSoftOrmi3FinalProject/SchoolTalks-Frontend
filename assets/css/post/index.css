@@ -1,0 +1,15 @@
+.title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 16px 0 40px 0;
+}
+
+.post-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 70px;
+    background: white;
+    height: 120%;
+    min-height: 1000px;
+}

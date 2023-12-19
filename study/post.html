@@ -3,68 +3,72 @@
 
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>EduGrids - Education & Online Course HTML Template.</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="assets/images/favicon.svg"
+        />
+        <!-- Place favicon.ico in the root directory -->
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>EduGrids - Education & Online Course HTML Template.</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.svg" />
-    <!-- Place favicon.ico in the root directory -->
+        <!-- Web Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Web Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
-    <link rel="stylesheet" href="/assets/css/animate.css" />
-    <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
+        <!-- ========================= CSS here ========================= -->
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
+        <link rel="stylesheet" href="/assets/css/animate.css" />
+        <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
+        <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
     <style>
 
-        .postbox {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 15px;
-            background: white;
-            height: 120%;
-        }
+    .postbox {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+        background: white;
+        height: 120%;
+    }
 
-        #postContainer {
-            max-width: 600px;
-            padding: 15px;
-            background: white;
-        }
+    #postContainer {
+        max-width: 600px;
+        padding: 15px;
+        background: white;
+    }
 
-        #postContainer img {
-            max-width: 100%;
-            height: auto;
-        }
+    #postContainer img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        #postContainer p {
-            margin: 10px 0;
-        }
+    #postContainer p {
+        margin: 10px 0;
+    }
 
-        #likeButton {
-            max-width: 60px;
-            margin: 0 auto;
-            padding: 10px;
-            text-align: center;
-            background-color: rgb(173, 218, 13); /* 연두색 배경 */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    #likeButton {
+        max-width: 60px;
+        margin: 0 auto;
+        padding: 10px;
+        text-align: center;
+        background-color: rgb(173, 218, 13); /* 연두색 배경 */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        #likeButton button:hover {
-        background-color: darkgreen; /* 마우스 호버 시 배경색 변경 */
+    #likeButton button:hover {
+    background-color: darkgreen; /* 마우스 호버 시 배경색 변경 */
     }
 
 
@@ -138,55 +142,55 @@
             text-decoration: none;
         }
 
-/* 수정 및 삭제 버튼 스타일 */
-#editDeleteButtons {
-    text-align: center; /* 버튼들을 가운데 정렬합니다. */
-    margin-top: 20px; /* 필요에 따라 상단 마진 조정 */
-}
+    /* 수정 및 삭제 버튼 스타일 */
+    #editDeleteButtons {
+        text-align: center; /* 버튼들을 가운데 정렬합니다. */
+        margin-top: 20px; /* 필요에 따라 상단 마진 조정 */
+    }
 
-#editPostButton,
-#deletePostButton {
-    background-color: #438162;;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px; /* 수정과 삭제 버튼 사이에 오른쪽 마진 추가 */
-}
+    #editPostButton,
+    #deletePostButton {
+        background-color: #438162;;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px; /* 수정과 삭제 버튼 사이에 오른쪽 마진 추가 */
+    }
 
-#editPostButton:hover,
-#deletePostButton:hover {
-    background-color: #438162;
-}
-
-
+    #editPostButton:hover,
+    #deletePostButton:hover {
+        background-color: #438162;
+    }
 
 
-/* 삭제 버튼 스타일 */
-.editCommentButton {
-    background-color: #57c52c;
-    border: none;
-}
-
-/* 삭제 버튼 호버 효과 */
-.editCommentButton:hover {
-    background-color: #96ecb3;
-    border: none;
-}
 
 
-/* 삭제 버튼 스타일 */
-.deleteCommentButton {
-    background-color: #e74c3c;
-    border: none;
-}
+    /* 삭제 버튼 스타일 */
+    .editCommentButton {
+        background-color: #57c52c;
+        border: none;
+    }
 
-/* 삭제 버튼 호버 효과 */
-.deleteCommentButton:hover {
-    background-color: #c0392b;
-    border: none;
-}
+    /* 삭제 버튼 호버 효과 */
+    .editCommentButton:hover {
+        background-color: #96ecb3;
+        border: none;
+    }
+
+
+    /* 삭제 버튼 스타일 */
+    .deleteCommentButton {
+        background-color: #e74c3c;
+        border: none;
+    }
+
+    /* 삭제 버튼 호버 효과 */
+    .deleteCommentButton:hover {
+        background-color: #c0392b;
+        border: none;
+    }
 
 
     </style>
@@ -211,7 +215,7 @@
             </div>
         </div>
     </div>
-    <!-- /End Preloader -->
+        <!-- /End Preloader -->
 
     <!-- Start Header Area -->
     <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
@@ -265,35 +269,51 @@
 
 
 
-    <!-- Start Footer Area -->
-    <footer class="footer">
-        <!-- Start Middle Top -->
+        <form id="commentForm">
+            <input type="text" id="commentText" placeholder="댓글 달기..." />
+            <button type="submit">댓글 작성</button>
+        </form>
+        <div id="editDeleteButtons">
+            <!-- 게시물 작성자인 경우에만 수정과 삭제 버튼을 보이게 합니다 -->
+            <button id="editPostButton">수정</button>
+            <button id="deletePostButton">삭제</button>
+        </div>
 
-        <!--/ End Footer Middle -->
-        <!-- Start Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="inner">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="left">
-                                <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                                        target="_blank">GrayGrids</a></p>
-                                        <p>- School Talks Project -</p>
+        <!-- Start Footer Area -->
+        <footer class="footer">
+            <!-- Start Middle Top -->
+
+            <!--/ End Footer Middle -->
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="left">
+                                    <p>
+                                        Designed and Developed by<a
+                                            href="https://graygrids.com/"
+                                            rel="nofollow"
+                                            target="_blank"
+                                            >GrayGrids</a
+                                        >
+                                    </p>
+                                    <p>- School Talks Project -</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End Footer Middle -->
-    </footer>
-    <!--/ End Footer Area -->
+            <!-- End Footer Middle -->
+        </footer>
+        <!--/ End Footer Area -->
 
-    <!-- ========================= scroll-top ========================= -->
-    <a href="#" class="scroll-top btn-hover">
-        <i class="lni lni-chevron-up"></i>
-    </a>
+        <!-- ========================= scroll-top ========================= -->
+        <a href="#" class="scroll-top btn-hover">
+            <i class="lni lni-chevron-up"></i>
+        </a>
 
     <!-- ========================= JS here ========================= -->
     <script src="/assets/js/bootstrap.min.js"></script>
