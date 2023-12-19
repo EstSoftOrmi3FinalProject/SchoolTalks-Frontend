@@ -14,7 +14,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <!-- Your code -->
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
@@ -52,10 +53,104 @@
             margin: 10px 0;
             font-size: 24px;
         }
+        .faq-question {
+    background-color: #f9f9f9;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.4s;
+}
 
-    
+.faq-answer {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.contact-section {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+        }
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .contact-info .email,
+        .contact-info .phone {
+            margin-top: 10px;
+        }
+        .map-container {
+            margin-top: 30px;
+        }
+        .map-container iframe {
+            width: 100%;
+            border: none;
+            height: 250px;
+            border-radius: 15px;
+        }
       
     </style>
+        <style>
+            /* ... 기존 스타일 ... */
+        
+            .card {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+        
+            .card-header {
+                background-color: #fff;
+                border-bottom: none;
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        
+            .card-body {
+                padding: 2rem;
+            }
+        
+            .faq-section {
+                background-color: #f9f9f9;
+                padding: 40px 0;
+            }
+        
+            .faq-question {
+                margin-bottom: 1rem;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                width: 100%;
+                border: 1px solid #ddd;
+                border-radius: 0.25rem;
+                background-color: #fff;
+                text-align: left;
+                outline: none;
+                font-size: 16px;
+                transition: 0.4s;
+            }
+        
+            /* ... 추가 스타일 ... */
+            </style>
 </head>
 
 <body>
@@ -81,13 +176,140 @@
     <!-- Start Header Area -->
     <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
     <!-- End Header Area -->
-    <div class="profile-container"style=" height: 60vh;">
-        <div class="profile-info">
-            <div class="userimg"></div>
-            <h2 class="username">문의</h2>
-            <p class="bio">문의 주세요<!DOCTYPE html></p>
+    <section class="hero-area" style="height: 5vh;">
+    </section>  
+    <section class="hero-area">
+        <div class="container">
+            <section class="row justify-content-center">
+                <div class="container">
+                    <div class="row justify-content-center"> 
+                    <div class="col-md-6">
+                    <h2 class="text-center">💡자주 묻는 질문</h2>
+                    <br>
+                    <div class="contact-info"> <!-- 텍스트 가운데 정렬 -->
+
+                            
+                        <div class="single-faq">
+                            <button class="faq-question">Q1. 비밀번호를 잊었어요.</button>
+                            <div class="faq-answer">
+                                <p  style ="height: 10vh;"><br>A1. 메일로 주시거나 하단에 문의를 남겨주세요.</p>
+                            </div>
+                        </div>
+                        <div class="single-faq">
+                            <button class="faq-question">Q2. 회원탈퇴를 하고 싶어요.</button>
+                            <div class="faq-answer">
+                                <p  style ="height: 10vh;"><br>A2. 메일로 주시거나 하단에 문의를 남겨주세요.</p>
+                            </div>
+                        </div>
+                        <!-- 추가 질문 및 답변을 계속해서 이곳에 넣으세요 -->
+                        <div class="single-faq">
+                            <button class="faq-question">Q3. 비즈니스 문의 드리고 싶어요.</button>
+                            <div class="faq-answer">
+                                <p  style ="height: 10vh;"><br>A3. 메일로 주시거나 하단에 문의를 남겨주세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+            </section>
         </div>
-    </div>
+    </section>
+    <section class="hero-area" style="height: 5vh;">
+    </section>  
+
+            <section class="hero-area">
+                <div class="container">
+                    <section class="row justify-content-center">
+                        <div class="container">
+                            <div class="row justify-content-center"> 
+                                <div class="col-md-6">
+                                    <h2 class="text-center">🔔 문의 및 연락</h2>
+                                    <br>
+                                    <div class="contact-info"> <!-- 텍스트 가운데 정렬 -->
+            
+                                        <form id="inquiryForm">
+                                            
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">이메일:</label>
+                                                <input type="email" class="form-control" id="email" name="email" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="subject" class="form-label">주제:</label>
+                                                <select class="form-select" id="subject" name="subject" required>
+                                                    <option value="" selected disabled>주제를 선택하세요</option>
+                                                    <option value="계정 문의">계정 문의</option>
+                                                    <option value="비즈니스 문의">비즈니스 문의</option>
+                                                    <option value="게시글 문의">게시글 문의</option>
+                                                    <option value="오류 문의">오류 문의</option>
+                                                    <option value="기타 문의">기타 문의</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="content" class="form-label">내용:</label>
+                                                <textarea class="form-control" id="content" name="content" required rows="4"></textarea>
+                                            </div>
+  
+
+                                                <div class="text-center">
+                                                <div class="g-recaptcha" data-sitekey="6LdXHzYpAAAAAK2tPGTsq0BVZRsf_7iTDnAQjaif" style="display: inline-block;"></div>
+                                            </div>
+                                            <br>
+                                            <div class="text-center">
+
+                                                <button type="submit" class="btn btn-success">문의 보내기</button>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            
+        </div>
+    </section>
+        <section class="hero-area" style="height: 5vh;">
+        </section>
+        <section class="hero-area">
+            <div class="container">
+                <div class="row justify-content-center"> <!-- 가운데 정렬을 위한 클래스 -->
+                    <div class="col-md-6">
+                        <div class="contact-info text-center"> <!-- 텍스트 가운데 정렬 -->
+                            <h3>📞연락처</h3>
+                            <p>다양한 문의 사항에 대해 연락 주시면 신속하게 답변 드리겠습니다.</p>
+                            <div class="email">
+                                <strong>이메일:</strong>
+                                <a href="mailto:info@example.com">info@example.com</a>
+                            </div>
+                            <div class="phone">
+                                <strong>전화번호:</strong>
+                                <span>+1 234 567 8900</span>
+                            </div>
+                        </div>
+                        <section class="hero-area" style="height: 5vh;">
+                        </section>
+                        <div class="contact-info text-center"> <!-- 텍스트 가운데 정렬 -->
+                            <h3 class="text-center">💶 지도에서 찾기</h3>
+
+                        <div class="map-container mt-4"> <!-- 지도 상단 여백 추가 -->
+                            <iframe src="https://www.google.com/maps/embed?pb=..." frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" style="width: 100%; border-radius: 15px;"></iframe>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+        
+        <section class="hero-area" style="height: 5vh;">
+        </section>
+        
+
 
 
     <!-- Start Footer Area -->
@@ -129,7 +351,13 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/include.js"></script>
+    <script src="assets/js/inquiry.js"></script>
 
+<script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
     <script type="text/javascript">
         //========= Hero Slider 
         tns({
@@ -172,6 +400,23 @@
             }
         });
 
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var faqQuestions = document.getElementsByClassName('faq-question');
+
+            for (var i = 0; i < faqQuestions.length; i++) {
+                faqQuestions[i].addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    var faqAnswer = this.nextElementSibling;
+                    if (faqAnswer.style.maxHeight) {
+                        faqAnswer.style.maxHeight = null;
+                    } else {
+                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                    } 
+                });
+            }
+        });
     </script>
 </body>
 
