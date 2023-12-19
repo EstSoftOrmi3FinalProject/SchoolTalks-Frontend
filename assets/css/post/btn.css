@@ -1,0 +1,72 @@
+.btn-area {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-like {
+    width: 12rem;
+    height: 4rem;
+    padding-left: 3rem;
+    border: 1px solid rgba(var(--red-rgb), 0.5);
+    border-radius: var(--border-radius);
+    background: var(--white-color) url(/assets/images/post/icon-like.svg) no-repeat 2.5rem 50% / 2.4rem;
+    transition: all 0.3s;
+}
+
+.btn-like:hover,
+.btn-like.active {
+    background: var(--red-color) url(/assets/images/post/icon-like-white.svg) no-repeat 2.5rem 50% / 2.4rem;
+    color: var(--white-color);
+}
+
+.btn-like:focus {
+    outline-color: rgba(var(--red-rgb), 0.2);
+    box-shadow: none;
+}
+
+.btn-modify,
+.btn-delete {
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+}
+
+.btn-modify {
+    background: var(--gray-background) url(/assets/images/post/icon-modify.svg) no-repeat 50% 50% / 1rem;
+    right: 13rem;
+}
+
+.btn-modify:hover {
+    background: var(--main-color) url(/assets/images/post/icon-modify-white.svg) no-repeat 50% 50% / 1rem;
+}
+
+.btn-delete {
+    background: var(--gray-background) url(/assets/images/post/icon-delete.svg) no-repeat 50% 50% / 1rem;
+}
+
+.btn-delete:hover {
+    background: var(--red-color) url(/assets/images/post/icon-delete-white.svg) no-repeat 50% 50% / 1rem;
+}
+
+.btn-write {
+    width: 12rem;
+    height: 4rem;
+    padding-left: 3rem;
+    color: black;
+    border: 1px solid rgba(var(--main-rgb), 0.5);
+    border-radius: var(--border-radius);
+    background: var(--white-color) url(/assets/images/post/icon-write.svg) no-repeat 2.5rem 50% / 2.4rem;
+    transition: all 0.3s;
+}
+
+.btn-write:hover {
+    background: var(--main-color) url(/assets/images/post/icon-write-white.svg) no-repeat 2.5rem 50% / 2.4rem;
+    color: var(--white-color);
+}
