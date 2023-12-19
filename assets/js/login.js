@@ -1,36 +1,56 @@
-sessionStorage.setItem('previousPage', document.referrer);
+sessionStorage.setItem("previousPage", document.referrer);
+const loginForm = document.getElementById("loginForm");
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-    fetch('http://127.0.0.1:8000/accounts/token/', {
-        method: 'POST',
+    fetch("http://127.0.0.1:8000/accounts/token/", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password }),
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.access) {
-            localStorage.setItem('access_token', data.access);
-            localStorage.setItem('refresh_token', data.refresh);
-// 이전 페이지 URL을 가져와서 리다이렉트
-const previousPage = sessionStorage.getItem('previousPage');
-if (previousPage) {
-window.location.href = previousPage;
-} else {
-// 이전 페이지 정보가 없을 경우 기본 페이지로 리다이렉트
-window.location.href = 'index.html';
-}
-        } else {
-            alert('아이디 또는 패스워드가 일치하지 않습니다.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.access) {
+                localStorage.setItem("access_token", data.access);
+                localStorage.setItem("refresh_token", data.refresh);
+                //사용자 정보를 가져와서 로컬스토리지에 저장
+                getuser();
+                // 이전 페이지 URL을 가져와서 리다이렉트
+                const previousPage = sessionStorage.getItem("previousPage");
+                if (previousPage) {
+                    window.location.href = previousPage;
+                } else {
+                    // 이전 페이지 정보가 없을 경우 기본 페이지로 리다이렉트
+                    window.location.href = "/";
+                }
+            } else {
+                alert("아이디 또는 패스워드가 일치하지 않습니다.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 });
+
+function getuser() {
+    fetch("http://127.0.0.1:8000/accounts/user/", {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            localStorage.setItem("user_id", data.id);
+            localStorage.setItem("view_name", data.view_name);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+}

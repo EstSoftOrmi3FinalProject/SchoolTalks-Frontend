@@ -1,0 +1,45 @@
+.post-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 3em;
+    background: white;
+    height: 120%;
+}
+
+.title-wrap {
+    display: flex;
+    margin: 1.2em 0 0.6em 0.5em;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+}
+
+.menu div {
+    display: flex;
+    gap: 10px;
+    color: black;
+    font-size: 16px;
+}
+
+.end .hits::before {
+    content: "조회수: ";
+}
+
+.start .author::after,
+.end .hits::after {
+    content: "|";
+}
+
+.end .like::before {
+    content: "❤️";
+}
+
+.content {
+    margin: 2.6em 2vw 0 2vw;
+    min-height: 500px;
+    color: black;
+}
