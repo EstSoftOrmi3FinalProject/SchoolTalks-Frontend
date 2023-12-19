@@ -9,6 +9,8 @@ const urlParams = new URLSearchParams(window.location.search);
 const post_id = urlParams.get("post_id");
 const commentList = document.querySelector(".comment-list");
 const commentForm = document.querySelector(".comment-form");
+const btnModify = document.querySelector(".btn-modify");
+const btnDelete = document.querySelector(".btn-delete");
 
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("access_token");
@@ -46,7 +48,6 @@ function loadPost(header) {
             hits.innerHTML = data.hits;
             like.innerHTML = data.likecount;
             content.innerHTML = data.content;
-            console.log(data.is_like);
             if (data.is_like) {
                 btnLike.classList.add("active");
             }
@@ -88,7 +89,6 @@ function submitComment() {
         const content = document.querySelector(
             ".comment-form > .comment-content"
         ).value;
-        console.log(content);
         const data = {
             content: content,
         };
@@ -99,21 +99,20 @@ function submitComment() {
                 Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             },
             body: JSON.stringify(data),
-        })
-            .then((res) => {
-                if (res.status === 401) {
-                    alert("로그인이 필요합니다.");
-                }
-                if (res.status === 201) {
-                    alert("댓글이 작성되었습니다.");
-                    // window.location.reload();
-                }
-            })
-            .then((data) => {
-                console.log(data);
-            });
+        }).then((res) => {
+            if (res.status === 401) {
+                alert("로그인이 필요합니다.");
+            }
+            if (res.status === 201) {
+                alert("댓글이 작성되었습니다.");
+                // window.location.reload();
+            }
+        });
     });
 }
+
+// 좋아요가 이미 눌려있는지 확인하고 눌려있으면 active 클래스 추가
+// 좋아요가 눌려있지 않으면 active 클래스 제거
 
 btnLike.addEventListener("click", () => {
     if (btnLike.classList.contains("active")) {
@@ -169,3 +168,30 @@ function likeoff(post_id) {
             like.innerHTML = data.likecount;
         });
 }
+
+// 수정, 삭제 버튼
+
+btnModify.addEventListener("click", () => {
+    window.location.href = `/post/edit.html?post_id=${post_id}`;
+});
+
+btnDelete.addEventListener("click", () => {
+    const deleteConfirm = confirm("정말 삭제하시겠습니까?");
+    if (deleteConfirm) {
+        fetch(`http://127.0.0.1:8000/post/${post_id}/`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            },
+        }).then((res) => {
+            if (res.status === 401) {
+                alert("로그인이 필요합니다.");
+            }
+            if (res.status === 204) {
+                alert("삭제되었습니다.");
+                window.location.href = "/post";
+            }
+        });
+    }
+});
