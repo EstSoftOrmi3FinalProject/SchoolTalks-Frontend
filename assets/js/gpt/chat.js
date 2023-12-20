@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+    window.setTimeout(fadeout, 500);
+
+    function fadeout() {
+        document.querySelector(".preloader").style.opacity = "0";
+        document.querySelector(".preloader").style.display = "none";
+    }
+
     // 페이지 로드 시 이전 채팅을 가져와 화면에 표시
     loadPreviousMessages();
 });
