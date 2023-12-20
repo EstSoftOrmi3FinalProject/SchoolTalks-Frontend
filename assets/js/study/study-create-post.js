@@ -73,7 +73,7 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
     .then(data => {
         console.log('Post created:', data);
         // 성공적으로 게시물이 생성된 후의 처리 로직
-        window.location.href = 'study-index.html';
+        window.location.href = 'index.html';
     })
     .catch(error => {
         console.error('Error:', error);
