@@ -39,7 +39,7 @@ function setupUIBasedOnAccessToken(accessToken) {
 
 function setupEventListeners() {
     document.getElementById('createpost').addEventListener('click', function() {
-        window.location.href = 'create-post.html';
+        window.location.href = '/study/create-post.html';
     });
 
 }
