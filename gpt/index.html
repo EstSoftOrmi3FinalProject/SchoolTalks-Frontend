@@ -35,14 +35,14 @@
     <![endif]-->
 
     <!-- Preloader -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="preloader-inner">
             <div class="preloader-icon">
                 <span></span>
                 <span></span>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /End Preloader -->
 
     <!-- Start Header Area -->
@@ -51,6 +51,22 @@
 
     <!-- Start Hero Area -->
     <section class="hero-area" style = "height: 60vh;">
+
+        <section class="hero-area" style="height: 60vh;">
+            <div id="chat-container">
+                <!-- 채팅이 표시될 영역 -->
+            </div>
+            <div>
+                <!-- 사용자가 입력하는 입력창 -->
+                <input type="text" id="chat-input" placeholder="Type your message..." />
+                <!-- 채팅 전송 버튼 -->
+                <button onclick="sendMessage()">보내기</button>
+            </div>
+            <div>
+                <!-- 이전 채팅 삭제 버튼 -->
+                <button onclick="deletePreviousMessages()">이전 채팅 삭제</button>
+            </div>
+        </section>
 
     </section>
     <!--/ End Hero Area -->
@@ -94,6 +110,8 @@
     </a>
 
     <!-- ========================= JS here ========================= -->
+    <script src="/assets/js/gpt/api.js"></script>
+    <script src="/assets/js/gpt/chat.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/count-up.min.js"></script>
     <script src="/assets/js/wow.min.js"></script>
@@ -152,6 +170,107 @@
             'autoplayVideos': true,
         });
     </script>
+
+    <!-- <script>
+        // 페이지 로드 시 이전 채팅을 가져와 화면에 표시
+        window.onload = function () {
+            loadPreviousMessages();
+        };
+    
+        async function loadPreviousMessages() {
+            try {
+                // 로컬 스토리지에서 토큰 가져오기
+                const token = localStorage.getItem('access_token');
+    
+                // GET 요청을 통해 이전 채팅 메시지 가져오기
+                const response = await fetch('http://127.0.0.1:8000/aichat/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to load previous messages');
+                }
+    
+                // JSON 응답 데이터에서 이전 채팅 메시지 배열 가져오기
+                const previousMessages = await response.json();
+    
+                // 화면에 이전 채팅 메시지 표시
+                var chatContainer = document.getElementById('chat-container');
+                chatContainer.innerHTML = ''; // 이전 채팅 삭제
+                previousMessages.forEach(message => {
+                    chatContainer.innerHTML += `<p>User: ${message.prompt}</p>`;
+                    chatContainer.innerHTML += `<p>AI: ${message.response}</p>`;
+                });
+            } catch (error) {
+                console.error(error);
+                alert('Failed to load previous messages. Please try again.');
+            }
+        }
+    
+        async function sendMessage() {
+            try {
+                // 로컬 스토리지에서 토큰 가져오기
+                const token = localStorage.getItem('access_token');
+    
+                // 입력된 채팅 가져오기
+                const userMessage = document.getElementById('chat-input').value;
+    
+                // POST 요청으로 새로운 채팅 추가
+                const response = await fetch('http://127.0.0.1:8000/aichat/', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prompt: userMessage,
+                    }),
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to send message');
+                }
+    
+                // 입력창 비우고 이전 채팅 다시 로드
+                document.getElementById('chat-input').value = '';
+                loadPreviousMessages();
+            } catch (error) {
+                console.error(error);
+                alert('Failed to send message. Please try again.');
+            }
+        }
+    
+        async function deletePreviousMessages() {
+            try {
+                // 로컬 스토리지에서 토큰 가져오기
+                const token = localStorage.getItem('access_token');
+    
+                // DELETE 요청으로 이전 채팅 삭제
+                const response = await fetch('http://127.0.0.1:8000/aichat/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to delete previous messages');
+                }
+    
+                // 이전 채팅 삭제 후 화면 갱신
+                loadPreviousMessages();
+            } catch (error) {
+                console.error(error);
+                alert('Failed to delete previous messages. Please try again.');
+            }
+        }
+    </script> -->
+
 </body>
 
 </html>
