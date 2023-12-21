@@ -15,9 +15,10 @@ function includeHtml() {
                     const htmlDoc = parser.parseFromString(html, "text/html");
                     // 현재 주소의 path를 받는다.
                     const currentHref = window.location.pathname.split("/")[1];
+                    console.log(currentHref, "currentHref");
                     // 해당 주소의 path와 동일한 링크를 가진 header에 active 클래스를 삽입한다.(css)
                     const activeElement = htmlDoc.querySelector(
-                        `[href="/${currentHref}"]`
+                        `.nav-item > [href="/${currentHref}"]`
                     );
                     if (activeElement) {
                         activeElement.classList.add("active");
@@ -25,7 +26,7 @@ function includeHtml() {
                     // fetch로 받아온 html text를 삽입한다.
                     el.innerHTML = htmlDoc.body.innerHTML;
                     logout();
-                    // mobile();
+                    mobile();
                 })
                 .catch((error) => {
                     console.error("Fetch error:", error);

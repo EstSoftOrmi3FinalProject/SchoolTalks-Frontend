@@ -79,3 +79,35 @@
     background: var(--white-color) url(/assets/images/post/icon-search.svg) no-repeat 50% 50% / 1.5rem;
     transition: all 0.3s;
 }
+
+.comment-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-comment-modify,
+.btn-comment-delete {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+}
+
+.btn-comment-modify {
+    background: var(--gray-background) url(/assets/images/post/icon-modify.svg) no-repeat 50% 50% / 1rem;
+    right: 13rem;
+}
+
+.btn-comment-modify:hover {
+    background: var(--main-color) url(/assets/images/post/icon-modify-white.svg) no-repeat 50% 50% / 1rem;
+}
+
+.btn-comment-delete {
+    background: var(--gray-background) url(/assets/images/post/icon-delete.svg) no-repeat 50% 50% / 1rem;
+}
+
+.btn-comment-delete:hover {
+    background: var(--red-color) url(/assets/images/post/icon-delete-white.svg) no-repeat 50% 50% / 1rem;
+}

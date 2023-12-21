@@ -5,12 +5,15 @@ const hits = document.querySelector(".hits");
 const like = document.querySelector(".like");
 const content = document.querySelector(".content");
 const btnLike = document.querySelector(".btn-like");
-const urlParams = new URLSearchParams(window.location.search);
-const post_id = urlParams.get("post_id");
 const commentList = document.querySelector(".comment-list");
 const commentForm = document.querySelector(".comment-form");
 const btnModify = document.querySelector(".btn-modify");
 const btnDelete = document.querySelector(".btn-delete");
+const userId = localStorage.getItem("user_id");
+
+// 게시글 id 가져오기
+const urlParams = new URLSearchParams(window.location.search);
+const post_id = urlParams.get("post_id");
 
 document.addEventListener("DOMContentLoaded", function () {
     const token = localStorage.getItem("access_token");
@@ -29,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// 게시글 불러오기
 function loadPost(header) {
     fetch(`http://127.0.0.1:8000/post/${post_id}`, {
         method: "GET",
@@ -36,15 +40,9 @@ function loadPost(header) {
     })
         .then((res) => res.json())
         .then((data) => {
-            const dateObject = new Date(data.created_at);
-            const formattedDate = `
-            ${dateObject.getFullYear()} -
-            ${dateObject.getMonth() + 1} -
-            ${dateObject.getDate()}
-            `;
             title.innerHTML = data.title;
             author.innerHTML = data.author_name;
-            date.innerHTML = formattedDate;
+            date.innerHTML = formattedDate(data.created_at);
             hits.innerHTML = data.hits;
             like.innerHTML = data.likecount;
             content.innerHTML = data.content;
@@ -53,23 +51,44 @@ function loadPost(header) {
             }
             data.comments.forEach((comment) => {
                 const commentItem = document.createElement("li");
-                const dateObject = new Date(comment.created_at);
-                const formattedDate = `
-                ${dateObject.getFullYear()} -
-                ${dateObject.getMonth() + 1} -
-                ${dateObject.getDate()}
-                `;
                 commentItem.innerHTML = `
                 <div class="comment-item">
-                    <div class="comment-author">${comment.author_name}</div>
+                    <div class="comment-author">${comment.author}</div>
                     <div class="comment-content">${comment.content}</div>
-                    <div class="comment-date">${formattedDate}</div>
+                    <div class="comment-date">
+                        ${formattedDate(comment.created_at)}
+                    </div>
+                    <div class="comment-setting">
+                        ${
+                            comment.author == userId
+                                ? `
+                            <span class="btn-comment-modify" id="comment-modify-${comment.id}"></span>
+                            <span class="btn-comment-delete" id="comment-delete-${comment.id}"></span>
+                            `
+                                : `
+                            <span style="width: 1.2rem; height: 1.2rem;"></span>
+                            <span style="width: 1.2rem; height: 1.2rem;"></span>
+                            `
+                        }
+                    </div>
                 </div>
                 `;
                 commentList.appendChild(commentItem);
+                commentModify();
+                commentDelete();
             });
             onModifyRemoveBtn(data.author);
         });
+}
+
+function formattedDate(date) {
+    const dateObject = new Date(date);
+    const formattedDate = `
+    ${dateObject.getFullYear()} -
+    ${dateObject.getMonth() + 1} -
+    ${dateObject.getDate()}
+    `;
+    return formattedDate;
 }
 
 function loadCommentForm(header, user_name) {
@@ -209,3 +228,103 @@ btnDelete.addEventListener("click", () => {
         });
     }
 });
+
+// 댓글 수정, 삭제 버튼
+
+function commentDelete() {
+    const btnCommentDelete = document.querySelectorAll(".btn-comment-delete");
+    btnCommentDelete.forEach((button) => {
+        button.addEventListener("click", () => {
+            const id = button.id;
+            const commentId = id.split("-")[2];
+            const deleteConfirm = confirm("정말 삭제하시겠습니까?");
+            if (deleteConfirm) {
+                fetch(
+                    `http://127.0.0.1:8000/post/${post_id}/comment/${commentId}/delete`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${localStorage.getItem(
+                                "access_token"
+                            )}`,
+                        },
+                    }
+                ).then((res) => {
+                    if (res.status === 401) {
+                        alert("로그인이 필요합니다.");
+                    }
+                    if (res.status === 204) {
+                        alert("삭제되었습니다.");
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    });
+}
+
+function commentModify() {
+    const btnCommentModify = document.querySelectorAll(".btn-comment-modify");
+    btnCommentModify.forEach((button) => {
+        button.addEventListener("click", () => {
+            const id = button.id;
+            const commentId = id.split("-")[2];
+            const commentItem = document.querySelector(
+                `#comment-modify-${commentId}`
+            ).parentNode.parentNode;
+            const commentContent = document
+                .querySelector(`#comment-modify-${commentId}`)
+                .parentNode.parentNode.querySelector(".comment-content");
+            const commentModifyForm = document.createElement("div");
+            commentModifyForm.innerHTML += `
+            <form class="comment-form">
+                <div class="comment-author">
+                    ${localStorage.getItem("view_name")}
+                </div>
+                <textarea class="form-control comment-content" name="content" placeholder="댓글을 입력하세요.">${
+                    commentContent.innerHTML
+                }</textarea>
+                <button class="btn btn-primary comment-edit-submit">댓글 수정</button>
+            </form>
+            `;
+            commentItem.innerHTML = "";
+            commentItem.appendChild(commentModifyForm);
+            commentModifySubmit(commentId);
+        });
+    });
+}
+
+function commentModifySubmit(commentId) {
+    const commentSubmit = document.querySelector(".comment-edit-submit");
+    commentSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
+        const content = document.querySelector(
+            ".comment-form > .comment-content"
+        ).value;
+        const data = {
+            content: content,
+        };
+        fetch(
+            `http://127.0.0.1:8000/post/${post_id}/comment/${commentId}/update`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem(
+                        "access_token"
+                    )}`,
+                },
+                body: JSON.stringify(data),
+            }
+        ).then((res) => {
+            if (res.status === 401) {
+                alert("로그인이 필요합니다.");
+            }
+            if (res.status === 200) {
+                alert("댓글이 수정되었습니다.");
+                window.location.reload();
+            }
+        });
+    });
+}
