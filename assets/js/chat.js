@@ -38,12 +38,10 @@ async function sendMessage(message) {
         body: JSON.stringify({ message }),
     });
 
-    if (response.status === 200) {
+    if (response.status === 201) {
         const data = await response.json();
-        messagesArray.push(data); // 새로운 메시지를 배열에 추가
+        messagesArray.unshift(data); // 새로운 메시지를 배열에 추가
         displayMessages(); // 새로운 메시지를 화면에 표시
-        location.reload(); // 메시지 전송 후 페이지 새로고침
-
     }
 }
 

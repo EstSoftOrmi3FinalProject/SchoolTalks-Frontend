@@ -24,6 +24,7 @@
 
 .comment-item {
     display: flex;
+    min-height: 50px;
 }
 
 .comment-author {
@@ -56,6 +57,7 @@
     flex-grow: 1;
 }
 
-.comment-form .comment-submit {
+.comment-form .comment-submit,
+.comment-edit-submit {
     width: 10em;
 }
