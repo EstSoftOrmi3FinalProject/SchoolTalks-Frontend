@@ -7,7 +7,7 @@ loginForm.addEventListener("submit", function (e) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    fetch("http://127.0.0.1:8000/accounts/token/", {
+    fetch("https://schooltalks.maxworld7070.net/accounts/token/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -39,7 +39,7 @@ loginForm.addEventListener("submit", function (e) {
 });
 
 function getuser() {
-    fetch("http://127.0.0.1:8000/accounts/user/", {
+    fetch("https://schooltalks.maxworld7070.net/accounts/user/", {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
