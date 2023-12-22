@@ -5,7 +5,7 @@ const refreshButton = document.getElementById('refresh-button'); // 새로고침
 
 const apiUrl = 'https://schooltalks.maxworld7070.net/chat/api/chat-messages/';
 
-// 채팅 메시지를 저장할 배열
+// 채팅 메시지를 저장할 배열 
 const messagesArray = [];
 
 // 서버로 메시지 전송
