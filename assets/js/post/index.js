@@ -7,7 +7,7 @@ const postDomain = baseDomain + "post/";
 
 function fetchPost() {
     document.addEventListener("DOMContentLoaded", function () {
-        fetch(`${domain}`, {
+        fetch(`${postDomain}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -85,7 +85,7 @@ btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     const type = document.querySelector("#search-select");
     const search = document.querySelector("#search-value");
-    fetch(`${domain}?${type.value}=${search.value}`, {
+    fetch(`${postDomain}?${type.value}=${search.value}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

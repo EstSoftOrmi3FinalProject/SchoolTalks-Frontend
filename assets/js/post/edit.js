@@ -5,6 +5,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const post_id = urlParams.get("post_id");
 
 document.addEventListener("DOMContentLoaded", function () {
+    tokencheck();
     const token = localStorage.getItem("access_token");
     fetch(`${domain}${post_id}/`, {
         method: "GET",

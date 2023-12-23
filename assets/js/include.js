@@ -8,12 +8,26 @@ function includeHtml() {
         if (targetFile) {
             // 해당 속성의 html을 fetch로 불러낸다.
             fetch(targetFile)
-                .then((response) => response.text())
+                .then((response) => {
+                    if (response.status !== 200) {
+                        console.error(
+                            `Looks like there was a problem. Status Code: ${response.status}`
+                        );
+                        return;
+                    }
+                    // Examine the text in the response
+                    const html = response.text();
+                    return html;
+                })
                 .then((html) => {
-                    if (targetFile == "header.html") {
-                        header(html);
-                    } else {
-                        el.innerHTML = html;
+                    switch (targetFile) {
+                        case "/header.html":
+                            el.innerHTML = header(html);
+                            logout();
+                            mobile();
+                            break;
+                        default:
+                            el.innerHTML = html;
                     }
                 })
                 .catch((error) => {
@@ -47,7 +61,5 @@ function header(html) {
         activeElement.classList.add("active");
     }
     // fetch로 받아온 html text를 삽입한다.
-    el.innerHTML = htmlDoc.body.innerHTML;
-    logout();
-    mobile();
+    return htmlDoc.body.innerHTML;
 }
