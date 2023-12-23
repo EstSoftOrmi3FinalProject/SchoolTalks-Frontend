@@ -10,6 +10,7 @@ const commentForm = document.querySelector(".comment-form");
 const btnModify = document.querySelector(".btn-modify");
 const btnDelete = document.querySelector(".btn-delete");
 const userId = localStorage.getItem("user_id");
+const domain = "http://127.0.0.1:8000/post/";
 
 // 게시글 id 가져오기
 const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 게시글 불러오기
 function loadPost(header) {
-    fetch(`http://127.0.0.1:8000/post/${post_id}`, {
+    fetch(`${domain}${post_id}`, {
         method: "GET",
         headers: header,
     })
@@ -112,7 +113,7 @@ function submitComment() {
         const data = {
             content: content,
         };
-        fetch(`http://127.0.0.1:8000/post/${post_id}/comment/create`, {
+        fetch(`${domain}${post_id}/comment/create`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -143,7 +144,7 @@ btnLike.addEventListener("click", () => {
 });
 
 function likeon(post_id) {
-    fetch(`http://127.0.0.1:8000/post/${post_id}/like`, {
+    fetch(`${domain}${post_id}/like`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -169,7 +170,7 @@ function likeon(post_id) {
 }
 
 function likeoff(post_id) {
-    fetch(`http://127.0.0.1:8000/post/${post_id}/like`, {
+    fetch(`${domain}${post_id}/like`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -211,7 +212,7 @@ btnModify.addEventListener("click", () => {
 btnDelete.addEventListener("click", () => {
     const deleteConfirm = confirm("정말 삭제하시겠습니까?");
     if (deleteConfirm) {
-        fetch(`http://127.0.0.1:8000/post/${post_id}/`, {
+        fetch(`${domain}${post_id}/`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -239,18 +240,15 @@ function commentDelete() {
             const commentId = id.split("-")[2];
             const deleteConfirm = confirm("정말 삭제하시겠습니까?");
             if (deleteConfirm) {
-                fetch(
-                    `http://127.0.0.1:8000/post/${post_id}/comment/${commentId}/delete`,
-                    {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Bearer ${localStorage.getItem(
-                                "access_token"
-                            )}`,
-                        },
-                    }
-                ).then((res) => {
+                fetch(`${domain}${post_id}/comment/${commentId}/delete`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem(
+                            "access_token"
+                        )}`,
+                    },
+                }).then((res) => {
                     if (res.status === 401) {
                         alert("로그인이 필요합니다.");
                     }
@@ -305,19 +303,14 @@ function commentModifySubmit(commentId) {
         const data = {
             content: content,
         };
-        fetch(
-            `http://127.0.0.1:8000/post/${post_id}/comment/${commentId}/update`,
-            {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem(
-                        "access_token"
-                    )}`,
-                },
-                body: JSON.stringify(data),
-            }
-        ).then((res) => {
+        fetch(`${domain}${post_id}/comment/${commentId}/update`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            },
+            body: JSON.stringify(data),
+        }).then((res) => {
             if (res.status === 401) {
                 alert("로그인이 필요합니다.");
             }
