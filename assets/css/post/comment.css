@@ -22,16 +22,20 @@
     gap: 1em;
 }
 
-.comment-item {
+.comment-item,
+.comment-form {
     display: flex;
     min-height: 50px;
+    gap: 1em;
 }
 
 .comment-author {
     width: 8em;
 }
 
-.comment-content {
+.comment-content,
+.comment-form-content {
+    resize: none;
     flex-grow: 1;
     margin: 0 0 0 1em;
 }
@@ -40,21 +44,8 @@
     width: 8em;
 }
 
-.comment-form {
-    display: flex;
-    width: 95%;
-    justify-content: space-between;
-    margin: 0.6em 1vw 0 1vw;
-    gap: 1em;
-}
-
 .comment-form .comment-author {
     width: 8em;
-}
-
-.comment-form .comment-content {
-    resize: none;
-    flex-grow: 1;
 }
 
 .comment-form .comment-submit,

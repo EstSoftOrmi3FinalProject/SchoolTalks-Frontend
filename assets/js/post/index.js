@@ -3,10 +3,11 @@ const btnSearch = document.querySelector("#btn-search");
 const postlist = document.querySelector(".postlist");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
+const postDomain = baseDomain + "post/";
 
 function fetchPost() {
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("http://127.0.0.1:8000/post/", {
+        fetch(`${postDomain}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +85,7 @@ btnSearch.addEventListener("click", function (e) {
     e.preventDefault();
     const type = document.querySelector("#search-select");
     const search = document.querySelector("#search-value");
-    fetch(`http://127.0.0.1:8000/post/?${type.value}=${search.value}`, {
+    fetch(`${postDomain}?${type.value}=${search.value}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

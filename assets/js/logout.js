@@ -1,3 +1,5 @@
+const accountsDomain = baseDomain + "accounts/";
+
 function logout() {
     tokencheck();
     const accessToken = localStorage.getItem("access_token");
@@ -21,44 +23,61 @@ function logout() {
         .getElementById("logoutButton")
         .addEventListener("click", function (e) {
             // 로컬 스토리지에서 'username' 항목을 삭제합니다.
-            localStorage.removeItem("username");
+            localStorage.removeItem("user_id");
+            localStorage.removeItem("view_name");
             localStorage.removeItem("access_token");
             localStorage.removeItem("refresh_token");
         });
 }
 
-function tokencheck() {
+async function tokencheck() {
     const accessToken = localStorage.getItem("access_token");
-    const refreshToken = localStorage.getItem("refresh_token");
+    if (accessToken) {
+        const response = await fetch(`${accountsDomain}token/verify/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                token: accessToken,
+            }),
+        });
+        switch (response.status) {
+            case 200:
+                break;
+            case 401:
+                refresh();
+                break;
+            default:
+                localStorage.removeItem("user_id");
+                localStorage.removeItem("view_name");
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("refresh_token");
+                window.location.href = "/login.html";
+        }
+    }
+}
 
-    fetch("http://127.0.0.1:8000/accounts/token/verify/", {
+async function refresh() {
+    const refreshToken = localStorage.getItem("refresh_token");
+    const response = await fetch(`${accountsDomain}token/refresh/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            token: accessToken,
+            refresh: refreshToken,
         }),
-    })
-        .then((res) => {
-            if (res.status === 401) {
-                fetch("http://127.0.0.1:8000/accounts/token/refresh/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        refresh: refreshToken,
-                    }),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        localStorage.setItem("access_token", data.access);
-                    });
-                return res.status;
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+    });
+    switch (response.status) {
+        case 200:
+            const data = await response.json();
+            localStorage.setItem("access_token", data.access);
+        case 401:
+            localStorage.removeItem("user_id");
+            localStorage.removeItem("view_name");
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+            window.location.href = "/login.html";
+    }
 }

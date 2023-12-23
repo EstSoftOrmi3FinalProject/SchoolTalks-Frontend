@@ -8,24 +8,27 @@ function includeHtml() {
         if (targetFile) {
             // 해당 속성의 html을 fetch로 불러낸다.
             fetch(targetFile)
-                .then((response) => response.text())
-                .then((html) => {
-                    // html text로 꺼낸다
-                    const parser = new DOMParser();
-                    const htmlDoc = parser.parseFromString(html, "text/html");
-                    // 현재 주소의 path를 받는다.
-                    const currentHref = window.location.pathname.split("/")[1];
-                    // 해당 주소의 path와 동일한 링크를 가진 header에 active 클래스를 삽입한다.(css)
-                    const activeElement = htmlDoc.querySelector(
-                        `.nav-item > [href="/${currentHref}"]`
-                    );
-                    if (activeElement) {
-                        activeElement.classList.add("active");
+                .then((response) => {
+                    if (response.status !== 200) {
+                        console.error(
+                            `Looks like there was a problem. Status Code: ${response.status}`
+                        );
+                        return;
                     }
-                    // fetch로 받아온 html text를 삽입한다.
-                    el.innerHTML = htmlDoc.body.innerHTML;
-                    logout();
-                    mobile();
+                    // Examine the text in the response
+                    const html = response.text();
+                    return html;
+                })
+                .then((html) => {
+                    switch (targetFile) {
+                        case "/header.html":
+                            el.innerHTML = header(html);
+                            logout();
+                            mobile();
+                            break;
+                        default:
+                            el.innerHTML = html;
+                    }
                 })
                 .catch((error) => {
                     console.error("Fetch error:", error);
@@ -42,4 +45,21 @@ function mobile() {
     navbarToggler.addEventListener("click", function () {
         navbarToggler.classList.toggle("active");
     });
+}
+
+function header(html) {
+    // html text로 꺼낸다
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(html, "text/html");
+    // 현재 주소의 path를 받는다.
+    const currentHref = window.location.pathname.split("/")[1];
+    // 해당 주소의 path와 동일한 링크를 가진 header에 active 클래스를 삽입한다.(css)
+    const activeElement = htmlDoc.querySelector(
+        `.nav-item > [href="/${currentHref}"]`
+    );
+    if (activeElement) {
+        activeElement.classList.add("active");
+    }
+    // fetch로 받아온 html text를 삽입한다.
+    return htmlDoc.body.innerHTML;
 }

@@ -1,4 +1,5 @@
 const postSubmit = document.querySelector("#post-submit");
+const postDomain = baseDomain + "post/";
 
 postSubmit.addEventListener("click", function (e) {
     e.preventDefault();
@@ -9,7 +10,7 @@ postSubmit.addEventListener("click", function (e) {
         title: postTitle,
         content: postContent,
     };
-    fetch("http://127.0.0.1:8000/post/", {
+    fetch(`${domain}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -1,29 +1,29 @@
-const chatMessages = document.getElementById('chat-messages');
-const messageInput = document.getElementById('message-input');
-const sendButton = document.getElementById('send-button');
-const refreshButton = document.getElementById('refresh-button'); // 새로고침 버튼 참조
+const chatMessages = document.getElementById("chat-messages");
+const messageInput = document.getElementById("message-input");
+const sendButton = document.getElementById("send-button");
+const refreshButton = document.getElementById("refresh-button"); // 새로고침 버튼 참조
 
-const apiUrl = 'http://127.0.0.1:8000/chat/api/chat-messages/';
+const apiUrl = baseDomain + "/api/chat-messages/";
 
 // 채팅 메시지를 저장할 배열
 const messagesArray = [];
 
 // 서버로 메시지 전송
-sendButton.addEventListener('click', () => {
+sendButton.addEventListener("click", () => {
     const message = messageInput.value;
     if (message) {
         sendMessage(message);
-        messageInput.value = '';
+        messageInput.value = "";
     }
 });
 
 // Enter 키를 눌러 메시지 전송
-messageInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+messageInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
         const message = messageInput.value;
         if (message) {
             sendMessage(message);
-            messageInput.value = '';
+            messageInput.value = "";
         }
     }
 });
@@ -31,9 +31,9 @@ messageInput.addEventListener('keydown', (event) => {
 // 메시지를 서버로 전송하고 화면에 표시
 async function sendMessage(message) {
     const response = await fetch(apiUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ message }),
     });
@@ -45,7 +45,7 @@ async function sendMessage(message) {
     }
 }
 
-refreshButton.addEventListener('click', () => {
+refreshButton.addEventListener("click", () => {
     location.reload(); // 페이지 새로고침
 });
 // timestamp 값을 월, 일, 시간, 분으로 표시하는 함수
@@ -56,12 +56,12 @@ function formatTimestamp(timestamp) {
     const day = date.getDate();
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    
+
     // 10보다 작은 월, 일, 분은 앞에 0을 붙여서 표시
-    const formattedMonth = (month < 10) ? `0${month}` : month;
-    const formattedDay = (day < 10) ? `0${day}` : day;
-    const formattedMinutes = (minutes < 10) ? `0${minutes}` : minutes;
-    
+    const formattedMonth = month < 10 ? `0${month}` : month;
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
     return `${year}-${formattedMonth}-${formattedDay} ${hours}:${formattedMinutes}`;
 }
 
@@ -69,11 +69,11 @@ function formatTimestamp(timestamp) {
 function displayMessages() {
     const reversedMessages = messagesArray.slice().reverse();
 
-    chatMessages.innerHTML = '';
+    chatMessages.innerHTML = "";
 
     reversedMessages.forEach((messageData) => {
-        const messageElement = document.createElement('div');
-        messageElement.className = 'message';
+        const messageElement = document.createElement("div");
+        messageElement.className = "message";
         messageElement.innerHTML = `
             <small>📆${formatTimestamp(messageData.timestamp)}</small>        
             <p>🎭Anonymous${messageData.id} : ${messageData.message}</p>
@@ -84,11 +84,10 @@ function displayMessages() {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-
 // 일정 간격으로 메시지를 가져와 화면에 표시
 async function getChatMessages() {
     const response = await fetch(apiUrl, {
-        method: 'GET',
+        method: "GET",
     });
     if (response.status === 200) {
         const messages = await response.json();

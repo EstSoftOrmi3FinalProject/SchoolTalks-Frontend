@@ -3,6 +3,8 @@ Template Name: EduGrids - Education & Online Course HTML Template.
 Author: GrayGrids
 */
 
+const baseDomain = "http://127.0.0.1:8000/";
+
 (function () {
     //===== Prealoder
 

@@ -1,11 +1,13 @@
 const postSubmit = document.querySelector("#post-submit");
+const postDomain = baseDomain + "post/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const post_id = urlParams.get("post_id");
 
 document.addEventListener("DOMContentLoaded", function () {
+    tokencheck();
     const token = localStorage.getItem("access_token");
-    fetch(`http://127.0.0.1:8000/post/${post_id}/`, {
+    fetch(`${domain}${post_id}/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +30,7 @@ postSubmit.addEventListener("click", function (e) {
         title: postTitle,
         content: postContent,
     };
-    fetch(`http://127.0.0.1:8000/post/${post_id}/`, {
+    fetch(`${domain}${post_id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
