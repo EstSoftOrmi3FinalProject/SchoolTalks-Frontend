@@ -22,7 +22,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
 function performSearch(query) {
     const accessToken = localStorage.getItem('access_token');
 
-    const url = `http://127.0.0.1:8000/study/list/?search=${query}`;
+    const url = `https://schooltalks.maxworld7070.net/study/list/?search=${query}`;
     fetchPostsFromUrl(url);
 }
 
@@ -51,7 +51,7 @@ function refreshToken() {
         return;
     }
 
-    fetch('http://127.0.0.1:8000/accounts/token/refresh/', {
+    fetch('https://schooltalks.maxworld7070.net/accounts/token/refresh/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ refresh: refreshToken })
@@ -99,7 +99,7 @@ function fetchPosts(pageNumber) {
         return;
     }
 
-    const url = `http://127.0.0.1:8000/study/list/?page=${pageNumber}`;
+    const url = `https://schooltalks.maxworld7070.net/study/list/?page=${pageNumber}`;
     fetch(url, {
         headers: { 'Authorization': 'Bearer ' + accessToken }
     })
