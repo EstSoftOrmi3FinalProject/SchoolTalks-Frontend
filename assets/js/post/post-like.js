@@ -3,7 +3,7 @@
 
 btnLike.addEventListener("click", () => {
     tokencheck();
-    const fetchUrl = `${postDomain}${post_id}/like/`;
+    const fetchUrl = `${postDomain}${postId}/like/`;
     const fetchHeader = {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
