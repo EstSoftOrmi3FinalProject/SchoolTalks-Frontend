@@ -57,7 +57,7 @@ document.getElementById('createPostForm').addEventListener('submit', function(ev
         formData.append('attachment', attachment);
     }
 
-    fetch('http://127.0.0.1:8000/study/create/', {
+    fetch('https://schooltalks.maxworld7070.net/study/create/', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + accessToken,
