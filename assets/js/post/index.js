@@ -3,7 +3,7 @@ const btnSearch = document.querySelector("#btn-search");
 const postlist = document.querySelector(".postlist");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
-const domain = "http://127.0.0.1:8000/post/";
+const postDomain = baseDomain + "post/";
 
 function fetchPost() {
     document.addEventListener("DOMContentLoaded", function () {

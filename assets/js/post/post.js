@@ -10,7 +10,7 @@ const commentForm = document.querySelector(".comment-form");
 const btnModify = document.querySelector(".btn-modify");
 const btnDelete = document.querySelector(".btn-delete");
 const userId = localStorage.getItem("user_id");
-const domain = "http://127.0.0.1:8000/post/";
+const postDomain = baseDomain + "post/";
 
 // 게시글 id 가져오기
 const urlParams = new URLSearchParams(window.location.search);

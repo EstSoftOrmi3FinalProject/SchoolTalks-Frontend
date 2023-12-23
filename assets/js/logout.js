@@ -1,3 +1,5 @@
+const accountsDomain = baseDomain + "/accounts";
+
 function logout() {
     tokencheck();
     const accessToken = localStorage.getItem("access_token");
@@ -31,7 +33,7 @@ function tokencheck() {
     const accessToken = localStorage.getItem("access_token");
     const refreshToken = localStorage.getItem("refresh_token");
 
-    fetch("http://127.0.0.1:8000/accounts/token/verify/", {
+    fetch(`${accountsDomain}token/verify/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -42,7 +44,7 @@ function tokencheck() {
     })
         .then((res) => {
             if (res.status === 401) {
-                fetch("http://127.0.0.1:8000/accounts/token/refresh/", {
+                fetch(`${accountsDomain}token/refresh/`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

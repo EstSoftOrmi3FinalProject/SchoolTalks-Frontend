@@ -33,7 +33,7 @@
 //         alert("로그인이 필요합니다."); // 예를 들어 로그인 페이지로 리디렉션 또는 경고 메시지 출력
 //     }
 // });
-$(document).ready(function() {
+$(document).ready(function () {
     // 로컬 스토리지에서 액세스 토큰을 가져옵니다.
     var accessToken = localStorage.getItem("access_token");
 
@@ -48,9 +48,9 @@ $(document).ready(function() {
             type: "GET",
             dataType: "json",
             headers: {
-                "Authorization": "Bearer " + accessToken // 액세스 토큰을 헤더에 추가
+                Authorization: "Bearer " + accessToken, // 액세스 토큰을 헤더에 추가
             },
-            success: function(data) {
+            success: function (data) {
                 // API 응답을 처리하고 정보를 HTML에 출력
                 $("#nickname").text(data.nickname);
                 $("#school").text(data.school_name);
@@ -62,12 +62,15 @@ $(document).ready(function() {
                 if (data.profile_picture) {
                     $("#profile-picture").attr("src", data.profile_picture);
                 } else {
-                    $("#profile-picture").attr("src", "/assets/images/profile/basic.png");
+                    $("#profile-picture").attr(
+                        "src",
+                        "/assets/images/profile/basic.png"
+                    );
                 }
             },
-            error: function(xhr, textStatus, errorThrown) {
+            error: function (xhr, textStatus, errorThrown) {
                 console.error("API 오류:", textStatus, errorThrown);
-            }
+            },
         });
     } else {
         // 액세스 토큰이 없는 경우에 대한 처리를 여기에 추가합니다.

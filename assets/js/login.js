@@ -1,5 +1,6 @@
 sessionStorage.setItem("previousPage", document.referrer);
 const loginForm = document.getElementById("loginForm");
+const accountsDomain = baseDomain + "/accounts";
 
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault();

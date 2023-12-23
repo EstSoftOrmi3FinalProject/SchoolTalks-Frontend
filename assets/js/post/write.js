@@ -1,5 +1,5 @@
 const postSubmit = document.querySelector("#post-submit");
-const domain = "http://127.0.0.1:8000/post/";
+const postDomain = baseDomain + "post/";
 
 postSubmit.addEventListener("click", function (e) {
     e.preventDefault();

@@ -10,22 +10,11 @@ function includeHtml() {
             fetch(targetFile)
                 .then((response) => response.text())
                 .then((html) => {
-                    // html text로 꺼낸다
-                    const parser = new DOMParser();
-                    const htmlDoc = parser.parseFromString(html, "text/html");
-                    // 현재 주소의 path를 받는다.
-                    const currentHref = window.location.pathname.split("/")[1];
-                    // 해당 주소의 path와 동일한 링크를 가진 header에 active 클래스를 삽입한다.(css)
-                    const activeElement = htmlDoc.querySelector(
-                        `.nav-item > [href="/${currentHref}"]`
-                    );
-                    if (activeElement) {
-                        activeElement.classList.add("active");
+                    if (targetFile == "header.html") {
+                        header(html);
+                    } else {
+                        el.innerHTML = html;
                     }
-                    // fetch로 받아온 html text를 삽입한다.
-                    el.innerHTML = htmlDoc.body.innerHTML;
-                    logout();
-                    mobile();
                 })
                 .catch((error) => {
                     console.error("Fetch error:", error);
@@ -42,4 +31,23 @@ function mobile() {
     navbarToggler.addEventListener("click", function () {
         navbarToggler.classList.toggle("active");
     });
+}
+
+function header(html) {
+    // html text로 꺼낸다
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(html, "text/html");
+    // 현재 주소의 path를 받는다.
+    const currentHref = window.location.pathname.split("/")[1];
+    // 해당 주소의 path와 동일한 링크를 가진 header에 active 클래스를 삽입한다.(css)
+    const activeElement = htmlDoc.querySelector(
+        `.nav-item > [href="/${currentHref}"]`
+    );
+    if (activeElement) {
+        activeElement.classList.add("active");
+    }
+    // fetch로 받아온 html text를 삽입한다.
+    el.innerHTML = htmlDoc.body.innerHTML;
+    logout();
+    mobile();
 }
