@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('deletePostButton').addEventListener('click', function() {
         if (confirm('게시물을 삭제하시겠습니까?')) {
             // 확인 버튼이 클릭된 경우 서버로 DELETE 요청을 보냅니다.
-            fetch(`http://127.0.0.1:8000/study/${postId}/delete/`, {
+            fetch(`https://schooltalks.maxworld7070.net/study/${postId}/delete/`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': 'Bearer ' + accessToken,
