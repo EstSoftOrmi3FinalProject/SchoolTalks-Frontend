@@ -10,12 +10,11 @@
   .chat_window {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50vh;
-    /* 뷰포트 높이의 50%에 위치하도록 설정 */
+    margin-top: 40vh;
     transform: translate(0, -60%);
     width: calc(100% - 20px);
     max-width: 800px;
-    height: 500px;
+    height: 60vh;
     border-radius: 10px;
     background-color: #fff;
     left: 50%;
@@ -74,7 +73,7 @@
     list-style: none;
     padding: 20px 10px 0 10px;
     margin: 0;
-    height: 347px;
+    height: 413px;
     overflow: scroll;
   }
   
@@ -87,7 +86,11 @@
   .messages .message.left .avatar {
     background-color: #f5886e;
     float: left;
-  }
+    background-image: url('../images/gpt/channels4_profile.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
   
   .messages .message.left .text_wrapper {
     background-color: #ffe6cb;
@@ -105,8 +108,12 @@
   }
   
   .messages .message.right .avatar {
-    background-color: #fdbf68;
+    background-color: #ffffff;
     float: right;
+    background-image: url('../images/logo/schooltalks.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .messages .message.right .text_wrapper {
