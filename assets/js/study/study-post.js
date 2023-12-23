@@ -151,7 +151,7 @@ function createPostElement(post) {
         <div class="post-footer">
         <p>😀이름 : ${post.author_username}</p>
 
-            <a href="post.html?postId=${post.id}" class="post-link">...더보기</a>
+            <a href="/study/post.html?postId=${post.id}" class="post-link">...더보기</a>
         </div>
         </div>
 
