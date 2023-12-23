@@ -37,6 +37,10 @@ async function loadPreviousMessages() {
         var chatContainer = document.querySelector('.messages');
         chatContainer.innerHTML = '';
 
+        if (previousMessages.length === 0) {
+            appendAiMessage("AI에게 모르는 문제나 면접 질문을 물어보세요!");
+            appendAiMessage("Ex) ~하는 수학 문제를 모르겠어 or 면접에서 지원 동기를 물어보면 어떤 대답이 좋을까?")
+        }
         // 이전 메시지 추가
         previousMessages.forEach(message => {
             // 오른쪽에는 User의 질문
@@ -94,6 +98,8 @@ async function sendMessage() {
 
         // AI의 답변 화면에 표시
         appendAiMessage(aiResponse.response);
+
+        scrollToBottom();
     } catch (error) {
         console.error(error);
         alert('메시지를 전송하는 데 실패했습니다. 다시 시도해주세요.');
