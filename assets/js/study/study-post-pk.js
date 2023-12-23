@@ -7,7 +7,7 @@ const postId = urlParams.get('postId');
 function fetchPostDetail() {
     const accessToken = localStorage.getItem('access_token');
 
-    fetch(`http://127.0.0.1:8000/study/${postId}/`, {
+    fetch(`https://schooltalks.maxworld7070.net/study/${postId}/`, {
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
@@ -47,7 +47,7 @@ function fetchCommentDetail() {
     const accessToken = localStorage.getItem('access_token');
 
     // 댓글 정보 요청
-    fetch(`http://127.0.0.1:8000/study/${postId}/comments/`, {
+    fetch(`https://schooltalks.maxworld7070.net/study/${postId}/comments/`, {
         headers: {
             'Authorization': 'Bearer ' + accessToken
         }
@@ -107,7 +107,7 @@ document.getElementById('commentForm').addEventListener('submit', function(event
     // author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
     // text = models.TextField()
     // created_at = models.DateTimeField(auto_now_add=True)
-    fetch(`http://127.0.0.1:8000/study/comments/`, {
+    fetch(`https://schooltalks.maxworld7070.net/study/comments/`, {
         method: 'POST',  // 좋아요 설정 또는 해제를 위한 POST 요청
         headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -178,7 +178,7 @@ document.addEventListener('click', function (event) {
 // 댓글 수정 함수
 function updateComment(commentId, newCommentText) {
     const accessToken = localStorage.getItem('access_token');
-    fetch(`http://127.0.0.1:8000/study/comments/${commentId}/`, {
+    fetch(`https://schooltalks.maxworld7070.net/study/comments/${commentId}/`, {
         method: 'PATCH',  // 댓글 수정을 위한 PATCH 요청
         headers: {
             'Authorization': 'Bearer ' + accessToken,
@@ -208,7 +208,7 @@ function updateComment(commentId, newCommentText) {
 // // 댓글 삭제 함수
 // function deleteComment(commentId) {
 //     const accessToken = localStorage.getItem('access_token');
-//     fetch(`http://127.0.0.1:8000/study/comments/${commentId}/`, {
+//     fetch(`https://schooltalks.maxworld7070.net/study/comments/${commentId}/`, {
 //         method: 'DELETE',  // 댓글 삭제를 위한 DELETE 요청
 //         headers: {
 //             'Authorization': 'Bearer ' + accessToken
@@ -233,7 +233,7 @@ function updateComment(commentId, newCommentText) {
 // 댓글 삭제 함수
 function deleteComment(commentId) {
     const accessToken = localStorage.getItem('access_token');
-    fetch(`http://127.0.0.1:8000/study/comments/${commentId}/`, {
+    fetch(`https://schooltalks.maxworld7070.net/study/comments/${commentId}/`, {
         method: 'DELETE',  // 댓글 삭제를 위한 DELETE 요청
         headers: {
             'Authorization': 'Bearer ' + accessToken
