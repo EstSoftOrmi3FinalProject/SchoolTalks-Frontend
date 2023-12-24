@@ -3,7 +3,7 @@ const messageInput = document.getElementById("message-input");
 const sendButton = document.getElementById("send-button");
 const refreshButton = document.getElementById("refresh-button"); // 새로고침 버튼 참조
 
-const apiUrl = baseDomain + "/api/chat-messages/";
+const apiUrl = baseDomain + "chat/api/chat-messages/";
 
 // 채팅 메시지를 저장할 배열
 const messagesArray = [];

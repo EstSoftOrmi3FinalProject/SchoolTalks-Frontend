@@ -9,12 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.svg" />
     <!-- Place favicon.ico in the root directory -->
-
     <!-- Web Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/LineIcons.2.0.css" />
@@ -23,8 +21,8 @@
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/chat.css" />    
+    <link rel="stylesheet" href="/assets/css/gpt.css" />  
 </head>
-
 <body>
     <!--[if lte IE 9]>
       <p class="browserupgrade">
@@ -33,7 +31,6 @@
         your experience and security.
       </p>
     <![endif]-->
-
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -44,7 +41,6 @@
         </div>
     </div>
     <!-- /End Preloader -->
-
     <!-- Start Header Area -->
     <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
     <!-- End Header Area -->
@@ -56,33 +52,29 @@
     </section>
     <!-- Start Hero Area -->
     <section class="hero-area">
-        <div class="chat-container">
+        <div class="chat_window">
+            <div class="top_menu">
+                <div class="buttons">
+                    <div class="button close"></div>
+                </div>
+                <div class="title">실시간익명채팅</div>
+            </div>
             <div class="chat-messages" id="chat-messages"></div>
             <div class="chat-input">
                 <input type="text" id="message-input" placeholder="Type your message..." class="form-control">
-                <br>
-                <br>
                 <button id="send-button" class="btn btn-primary">📧</button>
-                <br>
                 <button id="refresh-button" class="btn btn-success">♻️</button>
             </div>
         </div>
     </section>
-    
     <!--/ End Hero Area -->
-
     <!-- Start About Us Area -->
     <section class="about-us section">
-      
     </section>
     <!-- /End About Us Area -->
-
-
-
     <!-- Start Footer Area -->
     <footer class="footer">
         <!-- Start Middle Top -->
-
         <!--/ End Footer Middle -->
         <!-- Start Footer Bottom -->
         <div class="footer-bottom">
@@ -103,7 +95,6 @@
         <!-- End Footer Middle -->
     </footer>
     <!--/ End Footer Area -->
-
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top btn-hover">
         <i class="lni lni-chevron-up"></i>
