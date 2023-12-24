@@ -22,54 +22,9 @@
     <link rel="stylesheet" href="assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <style>
-.profile-image {
-    width: 25%; /* 너비를 25%로 설정하여 이미지 크기를 4분의 1로 줄임 */
-    height: auto; /* 높이는 자동으로 조절하여 이미지 비율을 유지 */
-}
-
-        .profile-container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-        }
-
-        .profile-info {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ddd;
-        }
-
-        .username {
-            margin: 10px 0;
-            font-size: 24px;
-        }
-
-    
-      
-    </style>
+    <link rel="stylesheet" href="assets/css/profile.css" />
 </head>
-
 <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-
     <!-- Preloader -->
     <div class="preloader" >
         <div class="preloader-inner">
@@ -83,6 +38,8 @@
 
     <!-- Start Header Area -->
     <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
+    <!-- /End Header Area -->
+    <!-- /Start Content -->
     <section class="hero-area" style="height: 13vh;">
     </section>  
     <section class="hero-area">
@@ -111,14 +68,10 @@
     </section>
     
     <section class="hero-area" style="height: 15vh;">
-</section>  
-
+    </section>  
+    <!--/ End Content -->
     <!-- Start Footer Area -->
     <footer class="footer">
-        <!-- Start Middle Top -->
-
-        <!--/ End Footer Middle -->
-        <!-- Start Footer Bottom -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="inner">
@@ -134,15 +87,12 @@
                 </div>
             </div>
         </div>
-        <!-- End Footer Middle -->
     </footer>
     <!--/ End Footer Area -->
-
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top btn-hover">
         <i class="lni lni-chevron-up"></i>
     </a>
-
     <!-- ========================= JS here ========================= -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
@@ -152,50 +102,8 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/include.js"></script>
-    <script type="text/javascript">
-        //========= Hero Slider 
-        tns({
-            container: '.hero-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
-        });
-        //====== Clients Logo Slider
-        tns({
-            container: '.client-logo-carousel',
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 15,
-            nav: false,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 4,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-   </script>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   <script src="assets/js/script.js"></script>
+    <script src="assets/js/profile.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 </html>
     
