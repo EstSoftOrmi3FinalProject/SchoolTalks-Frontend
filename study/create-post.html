@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -22,39 +21,8 @@
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <style>
-        .create-post-container {  
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .create-post-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        #createPostForm {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        #createPostForm input[type="text"],
-        #createPostForm input[type="file"] {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        #caption{
-            height: 300px;
-            padding: 10px;
-            resize: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/study/createpost.css" />
 </head>
-
 <body>
     <div class="preloader">
         <div class="preloader-inner">
@@ -64,20 +32,14 @@
             </div>
         </div>
     </div>
-
     <!-- Start Header Area -->
     <header data-include-file="/header.html" class="header navbar-area includeJs"></header>
-
-
     <!-- End Header Area -->
     <section class="hero-area" style="height: 10px;">
-      
     </section>
     <!-- Start Hero Area -->
     <section class="hero-area" >
         <div class="container mt-4">
-
-
             <div class="create-post-container">
                 <h2>📖 게시물 생성</h2>
             <form id="createPostForm">
@@ -95,22 +57,15 @@
                 <!-- Repeat with other posts -->
             </div>
         </div>
-
     </section>
     <!--/ End Hero Area -->
-
     <!-- Start About Us Area -->
     <section class="hero-area" style="height: 30px;">
-      
     </section>
     <!-- /End About Us Area -->
-
-
-
     <!-- Start Footer Area -->
     <footer class="footer">
         <!-- Start Middle Top -->
-
         <!--/ End Footer Middle -->
         <!-- Start Footer Bottom -->
         <div class="footer-bottom">
@@ -131,12 +86,10 @@
         <!-- End Footer Middle -->
     </footer>
     <!--/ End Footer Area -->
-
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top btn-hover">
         <i class="lni lni-chevron-up"></i>
     </a>
-
     <!-- ========================= JS here ========================= -->
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/count-up.min.js"></script>
@@ -147,51 +100,5 @@
     <script src="/assets/js/logout.js"></script>
     <script src="/assets/js/study/study-create-post.js"></script>
     <script src="/assets/js/include.js"></script>
-
-
-    <script type="text/javascript">
-        //========= Hero Slider 
-        tns({
-            container: '.hero-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
-        });
-        //====== Clients Logo Slider
-        tns({
-            container: '.client-logo-carousel',
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 15,
-            nav: false,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 4,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-
-    </script>
 </body>
-
 </html>

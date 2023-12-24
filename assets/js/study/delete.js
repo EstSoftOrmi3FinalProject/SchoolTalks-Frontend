@@ -1,5 +1,5 @@
 // delete.js 파일에 아래 코드를 추가합니다.
-const studyDomain = baseDomain + "study/";
+// const studyDomain = baseDomain + "study/";
 
 document.addEventListener("DOMContentLoaded", function () {
     const accessToken = localStorage.getItem("access_token");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                     .then((response) => {
                         if (response.status === 200) {
-                            window.location.href = "study-index.html";
+                            window.location.href = "index.html";
                         } else {
                             // 삭제 실패 또는 오류 발생한 경우
                             alert("게시물을 삭제할 수 없습니다.");

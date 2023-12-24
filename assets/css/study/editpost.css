@@ -1,0 +1,50 @@
+
+#editPostForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 폼 타이틀 스타일 */
+#editPostForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 입력 필드 스타일 */
+#editPostForm input[type="text"],
+#editPostForm textarea,
+#editPostForm input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* 텍스트 에어리어(내용 입력 부분) 스타일 */
+#editPostForm textarea {
+    height: 200px; /* 원하는 높이로 조정하세요 */
+    resize: vertical; /* 사용자가 수직으로 리사이즈할 수 있도록 합니다 */
+}
+
+/* 버튼 스타일 */
+#editPostForm button[type="submit"] {
+    background-color: #195c2a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#editPostForm button[type="submit"]:hover {
+    background-color: #0056b3; /* hover 시 배경색 변경 */
+}

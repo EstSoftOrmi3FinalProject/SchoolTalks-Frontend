@@ -216,31 +216,6 @@ function updateComment(commentId, newCommentText) {
         });
 }
 
-// // 댓글 삭제 함수
-// function deleteComment(commentId) {
-//     const accessToken = localStorage.getItem('access_token');
-//     fetch(`${studyDomain}comments/${commentId}/`, {
-//         method: 'DELETE',  // 댓글 삭제를 위한 DELETE 요청
-//         headers: {
-//             'Authorization': 'Bearer ' + accessToken
-//         }
-//     })
-//     .then(response => {
-//         if (response.status === 204) {
-//             console.log('댓글 삭제됨:', data);
-//             // 댓글 삭제 후 UI 업데이트 로직 (예: 댓글 목록 다시 불러오기)
-//             fetchCommentDetail();
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//         alert('댓글 삭제 실패');
-//     });
-// }
 // 댓글 삭제 함수
 function deleteComment(commentId) {
     const accessToken = localStorage.getItem("access_token");

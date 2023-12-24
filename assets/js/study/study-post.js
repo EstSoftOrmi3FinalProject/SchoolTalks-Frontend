@@ -55,7 +55,7 @@ function refreshToken() {
         return;
     }
 
-    fetch("http://127.0.0.1:8000/accounts/token/refresh/", {
+    fetch(`${baseDomain}/accounts/token/refresh/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),

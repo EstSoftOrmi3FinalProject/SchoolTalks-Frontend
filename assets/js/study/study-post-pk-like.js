@@ -1,4 +1,4 @@
-const studyDomain = baseDomain + "study/";
+// const studyDomain = baseDomain + "study/";
 
 // 좋아요 상태를 추적하여 UI를 업데이트하는 코드 시작
 let isLiked = false; // 좋아요 상태를 추적하는 변수 초기화
