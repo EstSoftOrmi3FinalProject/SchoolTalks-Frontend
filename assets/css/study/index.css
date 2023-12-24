@@ -13,7 +13,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 유지 */
 border-radius: 10px; /* 모서리 둥글게 유지 */
 overflow: hidden; /* 내용이 넘칠 경우 숨김 유지 */
 transition: transform 0.3s ease; /* 호버 효과 유지 */
-height: 22vh;
+height: 100%;
 /* 기타 필요한 스타일을 여기에 추가 */
 }
 
