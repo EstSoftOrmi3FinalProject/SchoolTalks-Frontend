@@ -2,12 +2,12 @@ const postSubmit = document.querySelector("#post-submit");
 const postDomain = baseDomain + "post/";
 
 const urlParams = new URLSearchParams(window.location.search);
-const post_id = urlParams.get("post_id");
+const postId = urlParams.get("post_id");
 
 document.addEventListener("DOMContentLoaded", function () {
     tokencheck();
     const token = localStorage.getItem("access_token");
-    fetch(`${domain}${post_id}/`, {
+    fetch(`${postDomain}${postId}/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -30,7 +30,7 @@ postSubmit.addEventListener("click", function (e) {
         title: postTitle,
         content: postContent,
     };
-    fetch(`${domain}${post_id}/`, {
+    fetch(`${postDomain}${postId}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
