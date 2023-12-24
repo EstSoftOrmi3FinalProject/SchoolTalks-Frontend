@@ -1,9 +1,31 @@
-    // reCAPTCHA 로드 후 호출되는 함수
+function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
+
+      document.addEventListener('DOMContentLoaded', function() {
+          var faqQuestions = document.getElementsByClassName('faq-question');
+
+          for (var i = 0; i < faqQuestions.length; i++) {
+              faqQuestions[i].addEventListener('click', function() {
+                  this.classList.toggle('active');
+                  var faqAnswer = this.nextElementSibling;
+                  if (faqAnswer.style.maxHeight) {
+                      faqAnswer.style.maxHeight = null;
+                  } else {
+                      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                  } 
+              });
+          }
+      });    
+   
+   
+   // reCAPTCHA 로드 후 호출되는 함수
     function onSubmit(token) {
         // reCAPTCHA가 확인되면 폼 데이터를 전송합니다.
         const email = document.getElementById("email").value;
         const subject = document.getElementById("subject").value;
         const content = document.getElementById("content").value;
+        const apiUrl = baseDomain + "qna/inquiry/";
 
         const data = {
             email: email,
@@ -11,7 +33,7 @@
             content: content
         };
 
-        fetch('http://127.0.0.1:8000/qna/inquiry/', {
+        fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,3 +67,4 @@
             event.preventDefault();
         }
     });
+

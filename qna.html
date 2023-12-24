@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -9,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
     <!-- Place favicon.ico in the root directory -->
-
     <!-- Web Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -23,145 +21,9 @@
     <link rel="stylesheet" href="assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <style>
-
-
-        .profile-container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-        }
-
-        .profile-info {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ddd;
-        }
-
-        .username {
-            margin: 10px 0;
-            font-size: 24px;
-        }
-        .faq-question {
-    background-color: #f9f9f9;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 18px;
-    transition: 0.4s;
-}
-
-.faq-answer {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-.contact-section {
-            background-color: #f9f9f9;
-            padding: 40px 0;
-        }
-        .contact-info {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info h3 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .contact-info p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-        }
-        .contact-info .email,
-        .contact-info .phone {
-            margin-top: 10px;
-        }
-        .map-container {
-            margin-top: 30px;
-        }
-        .map-container iframe {
-            width: 100%;
-            border: none;
-            height: 250px;
-            border-radius: 15px;
-        }
-      
-    </style>
-        <style>
-            /* ... 기존 스타일 ... */
-        
-            .card {
-                background: white;
-                border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-        
-            .card-header {
-                background-color: #fff;
-                border-bottom: none;
-                text-align: center;
-                font-size: 24px;
-                font-weight: bold;
-            }
-        
-            .card-body {
-                padding: 2rem;
-            }
-        
-            .faq-section {
-                background-color: #f9f9f9;
-                padding: 40px 0;
-            }
-        
-            .faq-question {
-                margin-bottom: 1rem;
-                cursor: pointer;
-                padding: 0.5rem 1rem;
-                width: 100%;
-                border: 1px solid #ddd;
-                border-radius: 0.25rem;
-                background-color: #fff;
-                text-align: left;
-                outline: none;
-                font-size: 16px;
-                transition: 0.4s;
-            }
-        
-            /* ... 추가 스타일 ... */
-            </style>
+    <link rel="stylesheet" href="assets/css/qna.css" />
 </head>
-
 <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-
     <!-- Preloader -->
     <div class="preloader" >
         <div class="preloader-inner">
@@ -186,9 +48,7 @@
                     <div class="col-md-6">
                     <h2 class="text-center">💡자주 묻는 질문</h2>
                     <br>
-                    <div class="contact-info"> <!-- 텍스트 가운데 정렬 -->
-
-                            
+                    <div class="contact-info"> <!-- 텍스트 가운데 정렬 -->     
                         <div class="single-faq">
                             <button class="faq-question">Q1. 비밀번호를 잊었어요.</button>
                             <div class="faq-answer">
@@ -212,13 +72,11 @@
                     </div>
                     </div>
                 </div>
-
             </section>
         </div>
     </section>
     <section class="hero-area" style="height: 5vh;">
     </section>  
-
             <section class="hero-area">
                 <div class="container">
                     <section class="row justify-content-center">
@@ -228,9 +86,7 @@
                                     <h2 class="text-center">🔔 문의 및 연락</h2>
                                     <br>
                                     <div class="contact-info"> <!-- 텍스트 가운데 정렬 -->
-            
                                         <form id="inquiryForm">
-                                            
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">이메일:</label>
                                                 <input type="email" class="form-control" id="email" name="email" required>
@@ -246,23 +102,17 @@
                                                     <option value="기타 문의">기타 문의</option>
                                                 </select>
                                             </div>
-                                            
                                             <div class="mb-3">
                                                 <label for="content" class="form-label">내용:</label>
                                                 <textarea class="form-control" id="content" name="content" required rows="4"></textarea>
                                             </div>
-  
-
                                                 <div class="text-center">
                                                 <div class="g-recaptcha" data-sitekey="6LdXHzYpAAAAAK2tPGTsq0BVZRsf_7iTDnAQjaif" style="display: inline-block;"></div>
                                             </div>
                                             <br>
                                             <div class="text-center">
-
                                                 <button type="submit" class="btn btn-success">문의 보내기</button>
                                             </div>
-
-
                                         </form>
                                     </div>
                                 </div>
@@ -271,7 +121,6 @@
                     </section>
                 </div>
             </section>
-            
         </div>
     </section>
         <section class="hero-area" style="height: 5vh;">
@@ -296,7 +145,6 @@
                         </section>
                         <div class="contact-info text-center"> <!-- 텍스트 가운데 정렬 -->
                             <h3 class="text-center">💶 지도에서 찾기</h3>
-
                         <div class="map-container mt-4"> <!-- 지도 상단 여백 추가 -->
                             <iframe src="https://www.google.com/maps/embed?pb=..." frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" style="width: 100%; border-radius: 15px;"></iframe>
                         </div>
@@ -305,18 +153,10 @@
                 </div>
             </div>
         </section>    
-        
         <section class="hero-area" style="height: 5vh;">
         </section>
-        
-
-
-
     <!-- Start Footer Area -->
     <footer class="footer">
-        <!-- Start Middle Top -->
-
-        <!--/ End Footer Middle -->
         <!-- Start Footer Bottom -->
         <div class="footer-bottom">
             <div class="container">
@@ -336,12 +176,10 @@
         <!-- End Footer Middle -->
     </footer>
     <!--/ End Footer Area -->
-
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top btn-hover">
         <i class="lni lni-chevron-up"></i>
     </a>
-
     <!-- ========================= JS here ========================= -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
@@ -352,72 +190,5 @@
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/include.js"></script>
     <script src="assets/js/inquiry.js"></script>
-
-<script>
-    function onSubmit(token) {
-      document.getElementById("demo-form").submit();
-    }
-  </script>
-    <script type="text/javascript">
-        //========= Hero Slider 
-        tns({
-            container: '.hero-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
-        });
-        //====== Clients Logo Slider
-        tns({
-            container: '.client-logo-carousel',
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 15,
-            nav: false,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 4,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var faqQuestions = document.getElementsByClassName('faq-question');
-
-            for (var i = 0; i < faqQuestions.length; i++) {
-                faqQuestions[i].addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    var faqAnswer = this.nextElementSibling;
-                    if (faqAnswer.style.maxHeight) {
-                        faqAnswer.style.maxHeight = null;
-                    } else {
-                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-                    } 
-                });
-            }
-        });
-    </script>
 </body>
-
 </html>
