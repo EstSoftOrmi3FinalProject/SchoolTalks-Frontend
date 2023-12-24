@@ -44,7 +44,7 @@ postSubmit.addEventListener("click", function (e) {
             }
             if (res.status === 200) {
                 alert("게시글이 수정되었습니다.");
-                window.location.href = `/post/post.html?post_id=${post_id}`;
+                window.location.href = `/post/post.html?post_id=${postId}`;
             }
         })
         .catch((err) => console.log(err));

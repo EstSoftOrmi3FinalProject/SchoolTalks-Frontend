@@ -76,9 +76,7 @@ async function fetchComment(url, header) {
 
 async function submitComment(e) {
     e.preventDefault();
-    const content = document.querySelector(
-        ".comment-form > .comment-content"
-    ).value;
+    const content = document.querySelector(".comment-form-content").value;
     const data = {
         content: content,
     };
