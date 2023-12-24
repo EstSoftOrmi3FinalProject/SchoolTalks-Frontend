@@ -3,7 +3,7 @@ Template Name: EduGrids - Education & Online Course HTML Template.
 Author: GrayGrids
 */
 
-const baseDomain = "schooltalks.maxworld7070.net/";
+const baseDomain = "https://schooltalks.maxworld7070.net/";
 
 (function () {
     //===== Prealoder
