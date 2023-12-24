@@ -10,7 +10,7 @@ postSubmit.addEventListener("click", function (e) {
         title: postTitle,
         content: postContent,
     };
-    fetch(`${domain}`, {
+    fetch(`${postDomain}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
