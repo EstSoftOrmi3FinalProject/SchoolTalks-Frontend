@@ -1,4 +1,3 @@
-const accountsDomain = baseDomain + "/accounts";
 
 document
     .getElementById("signupForm")

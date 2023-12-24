@@ -1,4 +1,3 @@
-<!-- 회원가입 -->
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -9,10 +8,13 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+    <!-- Place favicon.ico in the root directory -->
+
     <!-- Web Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
     <!-- ========================= CSS here ========================= -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
@@ -21,9 +23,18 @@
     <link rel="stylesheet" href="assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/register.css" />
+
 </head>
 
 <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -55,7 +66,6 @@
     </div>
     <!-- Start Footer Area -->
     <footer class="footer">
-        <!-- Start Footer Bottom -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="inner">
@@ -71,7 +81,6 @@
                 </div>
             </div>
         </div>
-        <!-- End Footer Middle -->
     </footer>
     <!--/ End Footer Area -->
 
@@ -79,7 +88,6 @@
     <a href="#" class="scroll-top btn-hover">
         <i class="lni lni-chevron-up"></i>
     </a>
-
     <!-- ========================= JS here ========================= -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
@@ -87,50 +95,8 @@
     <script src="assets/js/tiny-slider.js"></script>
     <script src="assets/js/glightbox.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/register.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/include.js"></script>
-    <script type="text/javascript">
-        //========= Hero Slider 
-        tns({
-            container: '.hero-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
-        });
-        //====== Clients Logo Slider
-        tns({
-            container: '.client-logo-carousel',
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButtonOutput: false,
-            mouseDrag: true,
-            gutter: 15,
-            nav: false,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 4,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-    </script>
+    <script src="assets/js/register.js"></script>
 </body>
 </html>
