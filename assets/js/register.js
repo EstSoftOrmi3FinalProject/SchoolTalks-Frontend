@@ -1,3 +1,9 @@
+localStorage.getItem("access_token")
+if (localStorage.getItem("access_token")) {
+    alert("이미 로그인 되어있습니다.");
+    window.location.href = "/";
+}
+
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const password_check = document.getElementById("password_check");

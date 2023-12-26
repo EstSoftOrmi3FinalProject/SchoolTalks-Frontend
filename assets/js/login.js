@@ -1,3 +1,9 @@
+localStorage.getItem("access_token")
+if (localStorage.getItem("access_token")) {
+    alert("이미 로그인 되어있습니다.");
+    window.location.href = "/";
+}
+
 sessionStorage.setItem("previousPage", document.referrer);
 const loginForm = document.getElementById("loginForm");
 const accountsDomain = baseDomain + "accounts/";
@@ -24,7 +30,11 @@ loginForm.addEventListener("submit", function (e) {
                 getuser(data.access);
                 // 이전 페이지 URL을 가져와서 리다이렉트
                 const previousPage = sessionStorage.getItem("previousPage");
-                if (previousPage) {
+                if (previousPage.split("/")[3] == "login", "signup") {
+                    // 이전 페이지가 로그인 또는 회원가입 페이지일 경우 기본 페이지로 리다이렉트
+                    window.location.href = "/";
+                } else if (previousPage) {
+                    // 이전 페이지 정보가 있을 경우 이전 페이지로 리다이렉트
                     window.location.href = previousPage;
                 } else {
                     // 이전 페이지 정보가 없을 경우 기본 페이지로 리다이렉트
