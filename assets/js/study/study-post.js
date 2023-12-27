@@ -55,7 +55,7 @@ function refreshToken() {
         return;
     }
 
-    fetch(`${baseDomain}/accounts/token/refresh/`, {
+    fetch(`${baseDomain}accounts/token/refresh/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),
@@ -161,48 +161,6 @@ function createPostElement(post) {
     `;
     return postElement;
 }
-
-// // 페이지 링크를 생성합니다.
-// function createPagination(data) {
-//     const paginationContainer = document.getElementById('paginationContainer');
-//     paginationContainer.innerHTML = ''; // Clear existing pagination
-
-//     const ul = document.createElement('ul');
-//     ul.classList.add('pagination');
-
-//     // 이전 페이지 링크
-//     if (data.previous) {
-//         const prevPageNumber = getPageNumberFromUrl(data.previous);
-//         ul.appendChild(createPageLink('Previous', prevPageNumber));
-//     }
-
-//     // // 페이지 링크 생성
-//     // for (let i = 1; i <= Math.ceil(data.count / 10); i++) {
-//     //     ul.appendChild(createPageLink(i, i));
-//     // }
-
-//     // 다음 페이지 링크
-//     if (data.next) {
-//         const nextPageNumber = getPageNumberFromUrl(data.next);
-//         ul.appendChild(createPageLink('Next', nextPageNumber));
-//     }
-
-//     paginationContainer.appendChild(ul);
-// }
-
-// // ...
-
-// // 페이지 링크 생성
-// function createPageLink(text, pageNumber) {
-//     const link = document.createElement('a');
-//     link.href = '#';
-//     link.textContent = text;
-//     link.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         fetchPosts(pageNumber);
-//     });
-//     return link;
-// }
 
 // 페이지 링크를 생성합니다.
 function createPagination(data) {
