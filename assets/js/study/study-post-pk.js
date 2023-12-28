@@ -33,7 +33,7 @@ function displayPost(post) {
         <p>📅작성일: ${formatDate(post.created_at)}</p>
         <p>🧨조회수: ${post.views || 0}</p>
         <p>💕좋아요: ${post.likesCount || 0}개</p>
-        <p>💌${post.caption}</p>
+        <p>💌${post.caption.replace(/\n/g, "<br>")}</p>
         ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
         ${
             post.attachment
