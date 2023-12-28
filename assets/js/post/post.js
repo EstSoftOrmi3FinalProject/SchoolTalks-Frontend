@@ -34,13 +34,12 @@ async function loadPost(url, header) {
         headers: header,
     });
     const data = await response.json();
-
     title.innerHTML = data.title;
     author.innerHTML = data.author_name;
     date.innerHTML = formattedDate(data.created_at);
     hits.innerHTML = data.hits;
     like.innerHTML = data.likecount;
-    content.innerHTML = data.content;
+    content.innerHTML = data.content.replace(/\n/g, "<br>");
 
     if (data.is_like) {
         btnLike.classList.add("active");

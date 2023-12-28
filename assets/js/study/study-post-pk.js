@@ -15,7 +15,6 @@ function fetchPostDetail() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             displayPost(data);
             checkLikeStatus(data); // 좋아요 상태 확인 함수 호출
         })
@@ -32,8 +31,8 @@ function displayPost(post) {
         <p>😉작성자: ${post.author_username}</p>
         <p>📅작성일: ${formatDate(post.created_at)}</p>
         <p>🧨조회수: ${post.views || 0}</p>
-        <p>💕좋아요: ${post.likesCount || 0}개</p>
-        <p>💌${post.caption}</p>
+        <p id="likesCount">${post.likesCount || 0}</p>
+        <p>💌${post.caption.replace(/\n/g, "<br>")}</p>
         ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
         ${
             post.attachment
@@ -55,7 +54,6 @@ function fetchCommentDetail() {
     })
         .then((response) => response.json())
         .then((comments) => {
-            console.log(comments);
             displayComments(comments); // 댓글 정보 표시
         })
         .catch((error) => console.error("Error:", error));

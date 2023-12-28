@@ -30,7 +30,7 @@ async function fetchComment(url, header) {
         commentItem.id = `comment-item-${comment.id}`;
         commentItem.innerHTML = `
         <div class="comment-author">${comment.author_name}</div>
-        <div class="comment-content">${comment.content}</div>
+        <div class="comment-content">${comment.content.replace(/\n/g, "<br>")}</div>
         <div class="comment-date">
             ${formattedDate(comment.created_at)}
         </div>

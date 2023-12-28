@@ -149,7 +149,7 @@ function createPostElement(post) {
     <div class="post-card">
         <div class="post-content">
             <h3>📌제목 : ${post.title}</h3>
-            <p>📍내용 : ${post.caption}</p>
+            <p>📍내용 : ${post.caption.replace(/\n/g, "<br>")}</p>
         </div>
         <div class="post-footer">
         <p>😀이름 : ${post.author_username}</p>

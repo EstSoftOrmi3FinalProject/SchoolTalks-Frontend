@@ -1,4 +1,3 @@
-
 .postbox {
     max-width: 600px;
     margin: 20px auto;
@@ -27,7 +26,8 @@
     margin: 0 auto;
     padding: 10px;
     text-align: center;
-    background-color: rgb(173, 218, 13); /* 연두색 배경 */
+    background-color: rgb(173, 218, 13);
+    /* 연두색 배경 */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -35,96 +35,119 @@
     cursor: pointer;
 }
 
-#likeButton button:hover {
-background-color: darkgreen; /* 마우스 호버 시 배경색 변경 */
+#likeButton::after {
+    content: "🤍";
 }
 
+#likeButton:hover {
+    background-color: darkgreen;
+}
 
-    #commentsContainer {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 15px;
-        background: white;
-        border: 1px solid #dbdbdb;
-    }
+#likeButton.active::after {
+    content: "💖";
+}
 
-    #commentForm {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 15px;
-        background: white;
-        border: 1px solid #dbdbdb;
-        display: flex;
-        gap: 10px;
-    }
+#likesCount::before {
+    content: "💕좋아요: "
+}
 
-    #commentForm input[type="text"] {
-        flex-grow: 1;
-        padding: 10px;
-        border: 1px solid #dbdbdb;
-        border-radius: 5px;
-    }
+#likesCount::after {
+    content: "개"
+}
 
-    #commentForm button {
-        background-color: #b1f796;
-        color: rgb(1, 27, 16);
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+#commentsContainer {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border: 1px solid #dbdbdb;
+}
 
-    #commentForm button:hover {
-        background-color: #98e718;
-    }
+#commentForm {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    gap: 10px;
+}
 
-    #profile{
-        background-color: #0095f6;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #profile:hover{
-        background-color: #0086e5;
-    }
-    #createpost{
-        background-color: #0095f6;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #createpost:hover{
-        background-color: #0086e5;
-    }
-    
-    .logo{
-        font-size: 24px;
-        margin: 0;
-    }
-    .logo a{
-        color: black;
-        text-decoration: none;
-    }
+#commentForm input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+}
+
+#commentForm button {
+    background-color: #b1f796;
+    color: rgb(1, 27, 16);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#commentForm button:hover {
+    background-color: #98e718;
+}
+
+#profile {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#profile:hover {
+    background-color: #0086e5;
+}
+
+#createpost {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#createpost:hover {
+    background-color: #0086e5;
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+.logo a {
+    color: black;
+    text-decoration: none;
+}
 
 /* 수정 및 삭제 버튼 스타일 */
 #editDeleteButtons {
-    text-align: center; /* 버튼들을 가운데 정렬합니다. */
-    margin-top: 20px; /* 필요에 따라 상단 마진 조정 */
+    text-align: center;
+    /* 버튼들을 가운데 정렬합니다. */
+    margin-top: 20px;
+    /* 필요에 따라 상단 마진 조정 */
 }
 
 #editPostButton,
 #deletePostButton {
-    background-color: #438162;;
+    background-color: #438162;
+    ;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; /* 수정과 삭제 버튼 사이에 오른쪽 마진 추가 */
+    margin-right: 10px;
+    /* 수정과 삭제 버튼 사이에 오른쪽 마진 추가 */
 }
 
 #editPostButton:hover,

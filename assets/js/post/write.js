@@ -20,7 +20,6 @@ postSubmit.addEventListener("click", function (e) {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             window.location.href = "/post";
         })
         .catch((err) => console.log(err));
