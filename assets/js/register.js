@@ -1,4 +1,4 @@
-localStorage.getItem("access_token")
+localStorage.getItem("access_token");
 if (localStorage.getItem("access_token")) {
     alert("이미 로그인 되어있습니다.");
     window.location.href = "/";
@@ -36,6 +36,12 @@ document
         event.preventDefault();
         if (password.value !== password_check.value) {
             alert("비밀번호가 일치하지 않습니다.");
+            password_check.focus();
+            return;
+        }
+        if (isNaN(grade.value)) {
+            alert("학년은 숫자로 입력해주세요.");
+            grade.focus();
             return;
         }
         const formData = new FormData();
