@@ -30,6 +30,7 @@ function checkPasswordMatch() {
 password.addEventListener("input", checkPasswordMatch);
 password_check.addEventListener("input", checkPasswordMatch);
 
+// 회원가입 버튼 클릭 시
 document
     .getElementById("signupForm")
     .addEventListener("submit", function (event) {
